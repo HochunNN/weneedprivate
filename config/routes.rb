@@ -8,15 +8,31 @@ Rails.application.routes.draw do
   get   'home/page_main'
   # get   'home/linetalk_write'
   post  'home/page_main_linetalk_write'
-  
-  get   'home/page_announce'
   get   'home/page_price'
+  
+  
+  
+##########################################################################################  
+##################################공지사항 관련###########################################
+##########################################################################################
+  get   'home/page_announce'
+  get   'home/page_announce_write'
+  post  'home/page_announce_write_save'
+  
+
+##########################################################################################  
+################################소중이톡 관련#############################################
+##########################################################################################  
+  get   'home/page_sojoong2talk'
+  get   'home/page_sojoong2talk_write'
+  post  'home/page_sojoong2talk_write_save'
   
 ##########################################################################################  
 ##############################자유게시판 관련#############################################
 ##########################################################################################
   
   get   'home/page_board_free'
+  get   'home/page_board_free/:post_id' => "home#page_board_free"
   get   'home/page_board_free_write'
   post  'home/page_board_free_write_save'
   get   'home/page_board_free_detail/:post_id' => "home#page_board_free_detail"
@@ -25,7 +41,7 @@ Rails.application.routes.draw do
   post  'home/page_board_free_update_save/:post_id' => "home#page_board_free_update_save"
   post  'home/page_board_free_reply_save'
   post  'home/page_board_free_viewcount'
-  
+  post  'home/page_board_free_request'  
   
 ##########################################################################################  
 ################################리뷰게시판 관련###########################################

@@ -1,0 +1,47 @@
+<%if @search_product_name_keys_paginate.present? %>
+    <div id="append_here">
+    	<div class="result">
+    		
+    		<!--< @search_product_name.each do |product_title,contents| %>-->
+    		<% @search_product_name_keys_paginate.each do |product| %>
+    			<% simple_temp = @search_product_name[product] %>
+    			
+    		    <div class="item">
+    				<div id="img">
+    					<img id="img" style="filter: blur(5px);" src="<%= simple_temp.first.product_picture_url %>">
+    				</div>
+    				<div id="info">
+    					<span id="categories">카테고리</span>
+    					<br>
+    					<span id="name"><%= product %></span>
+    					<br>
+    					<% if simple_temp.size > 1 %>
+    		    			<span id="price"><%= simple_temp.first.product_price %>원 ~ <%= simple_temp.last.product_price %>원</span>
+    		            <% else %>
+    		                <span id="price"><%= simple_temp.first.product_price %>원</span>
+    		            <% end %>
+    					<div id="subinfo">
+    						만족도 <span>0.0점</span> (0개의 한줄 상품평이 등록되어 있습니다)
+    					</div>
+    				</div>
+    				<div id="siteinfo">
+    					<ul>
+    					    <% simple_temp.each do |product_arr| %>
+    					        <li>
+    		                        <a href="<%= product_arr.product_website_detail_address %>">
+    		                            <%= product_arr.product_website%>
+    		                        </a>
+    		                        <span><%= product_arr.product_price %>원</span>
+    		                    </li>
+    		                <% end %>
+    					</ul>
+    				</div>
+    			</div>
+    			
+    		<% end %>
+        </div>
+    </div>
+<% end %>
+
+<link rel="stylesheet" href="/assets/price.css">
+<script src="/assets/price.js"></script>

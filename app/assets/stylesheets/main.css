@@ -1,180 +1,558 @@
-.content .announce{
+.front{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background-color: #f6b5d4;
+    z-index: -1;
+}
+
+.front .inner{
+    position: relative;
+    left: 50%;
+    margin-left: -480px;
+    width: 960px;
+    height: 100%
+}
+
+.front .inner span{
+    position: relative;
+    top: 150px;
+}
+
+.front .inner #main_img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 350px;
+}
+
+.nav{
+    position: fixed;
+    top: 0;
+    padding: 20px 0 20px 0;
+    width: 100%;
+    height: 65px;
+    background-color: #f6b5d4;
+    box-shadow: 0px 2px 2px #ef7db3;
+    z-index: 2;
+}
+
+.content .inner .announce{
+    position: relative;
+    width: 100%;
+}
+
+.content .inner .announce .title{
+    position: relative;
+    width: 100%;
+    height: 35px;
+}
+
+.content .inner .announce .title #head{
     display: inline-block;
     float: left;
-    margin-top: 40px; 
-    padding: 20px; 
-    width: 730px; 
-    height: 300px; 
-    border-top: 1px solid #dfdfdf; 
-    border-bottom: 1px solid #dfdfdf;
+    color: #34404b;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.content .announce div{
-    width:100%; 
-    text-align: center;
-}
-
-.content .announce div span{
-    font-size: 26px;
-    font-family: Hanna !important;
-}
-
-.content .chat{
-    position: relative;
+.content .inner .announce .title #link{
+    display: inline-block;
     float: right;
-    top: 0;
-    width: 250px; 
-    height: 540px; 
-    margin-top: -200px;
-    margin-left: 20px;
-    border: 1px solid #dfdfdf;
-    text-align: center;
+    color: #969ca2;
+    font-size: 14px;
 }
 
-.content .chat span{
-    font-size: 20px;
-    font-family: Hanna !important;
-}
-
-.content .chat span{
-    font-size: 20px;
-    font-family: Hanna !important;
-}
-
-.content #linetalks #linetalk{
+.content .inner .announce .item_box{
+    position: relative;
+    margin-top: 30px;
     width: 100%;
-    border-top: 10px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    border-left: 10px solid transparent;
-    border-image: url(/assets/sojoong2_linetalk.jpg) 50 stretch;
-    border-image-slice: 10 20 20 10;
+    height: 330px;
 }
 
-.content > .category{
+.content .inner .announce .item_box #item{
+    position: relative;
     display: inline-block;
-    margin-top: 40px;
-    width:100%; 
+    float: left;
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    box-shadow: 0px 2px 2px #dfdfdf;
     text-align: center;
 }
 
-.content > .category div{
-    width:100%; 
-    text-align: center;
+.content .inner .announce .item_box #item:hover{
+    text-decoration: none;
 }
 
-.content > .category div span{
+.content .inner .announce .item_box #item span{
+    position: relative;
+    top: 30px;
+    color: white;
+    font-size: 30px;
+}
+
+.content .inner .announce .item_box #item:nth-child(2){
+    margin-left: 30px;
+}
+
+.content .inner .announce .item_box #item:nth-child(3){
+    margin-left: 30px;
+}
+
+.content .inner .sojoong2talk{
+    position: relative;
+    margin-top: 90px;
+    width: 100%;
+}
+
+.content .inner .sojoong2talk .title{
+    position: relative;
+    width: 100%;
+    height: 35px;
+}
+
+.content .inner .sojoong2talk .title #head{
+    display: inline-block;
+    float: left;
+    color: #34404b;
     font-size: 20px;
-    font-family: Hanna !important;
+    font-weight: bold;
 }
 
-.content > .category ul{
-    margin-top: 5px;
-}
-
-.content > .category ul li{
+.content .inner .sojoong2talk .title #link{
     display: inline-block;
-    padding: 20px 20px 20px 20px;
-    width: 16%;
+    float: right;
+    color: #969ca2;
+    font-size: 14px;
+}
+
+.content .inner .sojoong2talk .item_box{
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    height: 230px;
+}
+
+.content .inner .sojoong2talk .item_box #item{
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 230px;
+    height: 230px;
+    background-size: cover;
+    box-shadow: 0px 2px 2px #dfdfdf;
+}
+
+.content .inner .sojoong2talk .item_box #item:nth-child(2){
+    margin-left: 13px;
+}
+
+.content .inner .sojoong2talk .item_box #item:nth-child(3){
+    margin-left: 13px;
+}
+
+.content .inner .sojoong2talk .item_box #item:nth-child(4){
+    margin-left: 13px;
+}
+
+.content .inner .poppular_product{
+    position: relative;
+    margin-top: 90px;
+    width: 100%;
+}
+
+.content .inner .poppular_product .title{
+    position: relative;
+    width: 100%;
+    height: 35px;
+}
+
+.content .inner .poppular_product .title #head{
+    display: inline-block;
+    float: left;
+    color: #34404b;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content .inner .poppular_product .title #link{
+    display: inline-block;
+    float: right;
+    color: #969ca2;
+    font-size: 14px;
+}
+
+.content .inner .poppular_product .container_temp{
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    height: 450px;
+}
+
+.content .inner .poppular_product .container_temp .category{
+    display: inline-block;
+    float: left;
+    padding: 20px;
+    width: 230px;
+    height: 450px;
+    list-style: none;
+    background-color: #eeeeee;
+}
+
+.content .inner .poppular_product .container_temp .category li{
+    display: block;
+    margin-bottom: 20px;
+    color: #b1b1b1;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+.content .inner .poppular_product .container_temp .category li span > a{
+    display: block;
+    margin-bottom: 5px;
+    color: #34404b;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.content .inner .poppular_product .container_temp .category li > a{
+    color: #b1b1b1;
+    font-family: sans-serif;
+}
+
+.content .inner .poppular_product .container_temp .item_box{
+    display: inline-block;
+    float: left;
+    width: 730px;
+    height: 450px;
+}
+
+.content .inner .poppular_product .container_temp .item_box #item{
+    display: inline-block;
+    float: right;
+    margin-left: 10px;
+    width: 230px;
+    height: 450px;
+    background-color: white;
+    text-align: center;
+}
+
+.content .inner .poppular_product .container_temp .item_box #item span{
+    position: relative;
+    top: 60px;
+    color: white;
+    font-size: 30px;
+}
+
+.content .inner .poppular_product .container_temp .item_box #item:nth-child(1){
+    background-color: #f3b5c4;
+}
+
+.content .inner .poppular_product .container_temp .item_box #item:nth-child(2){
+    background-color: #91a9cf;
+}
+
+.content .inner .poppular_product .container_temp .item_box #item:nth-child(3){
+    background-color: #7eceb5;
+}
+
+.content .inner .community{
+    position: relative;
+    margin-top: 90px;
+    width: 100%;
+}
+
+.content .inner .community .review_board{
+    position: relative;
+    margin-top: 90px;
+    width: 100%;
+}
+
+.content .inner .community .review_board .title{
+    position: relative;
+    width: 100%;
+    height: 35px;
+}
+
+.content .inner .community .review_board .title #head{
+    display: inline-block;
+    float: left;
+    color: #34404b;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content .inner .community .review_board .title #link{
+    display: inline-block;
+    float: right;
+    color: #969ca2;
+    font-size: 14px;
+}
+
+.content .inner .community .review_board .item_box{
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    height: 130px;
+}
+
+
+.content .inner .community .review_board .item_box .item{
+    position: relative;
+    display: inline-block;
+    float: left;
+    padding: 20px;
+    width: 230px;
+    height: 130px;
+    text-align: left;
+    box-shadow: 0px 2px 2px #dfdfdf;
+}
+
+.content .inner .community .review_board .item_box .item:nth-child(1){
+    background-color: #f3b5c4;
+}
+
+.content .inner .community .review_board .item_box .item:nth-child(2){
+    margin-left: 13px;
+    background-color: #91a9cf;
+}
+
+.content .inner .community .review_board .item_box .item:nth-child(3){
+    margin-left: 13px;
+    background-color: #7eceb5;
+}
+
+.content .inner .community .review_board .item_box .item:nth-child(4){
+    margin-left: 13px;
+    background-color: #91a9cf;
+}
+
+.content .inner .community .review_board .item_box .item:nth-child(1) #category{
+    color: #ffe1f1;
+    font-size: 12px;
+}
+
+.content .inner .community .review_board .item_box .item:nth-child(2) #category{
+    color: #b7cef7;
+    font-size: 12px;
+}
+
+.content .inner .community .review_board .item_box .item:nth-child(3) #category{
+    color: #a1f3da;
+    font-size: 12px;
+}
+
+.content .inner .community .review_board .item_box .item:nth-child(4) #category{
+    color: #b7cef7;
+    font-size: 12px;
+}
+
+.content .inner .community .review_board .item_box .item #product_name{
+    color: white;
+    font-size: 12px;
+}
+
+.content .inner .community .review_board .item_box .item #title{
+    color: white;
     font-size: 14px;
     font-weight: bold;
-    border: 1px solid #dfdfdf;
 }
 
-.content .board1{
+.content .inner .community .review_board .item_box .item:nth-child(1) #name{
+    color: #ffe1f1;
+    font-size: 12px;
+}
+
+.content .inner .community .review_board .item_box .item:nth-child(2) #name{
+    color: #b7cef7;
+    font-size: 12px;
+}
+
+.content .inner .community .review_board .item_box .item:nth-child(3) #name{
+    color: #a1f3da;
+    font-size: 12px;
+}
+
+.content .inner .community .review_board .item_box .item:nth-child(4) #name{
+    color: #b7cef7;
+    font-size: 12px;
+}
+
+.content .inner .community .review_board .review_list_container{
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    height: 460px;
+}
+
+.content .inner .community .review_board .review_list_container .review_list{
+    position: relative;
+    float: left;
+    padding: 20px;
+    width: 475px;
+    height: 100%;
+    background-color: #eeeeee;
+}
+
+.content .inner .community .review_board .review_list_container .review_list .review{
+    position: relative;
+    width: 100%;
+    height: 90px;
+    color: black;
+}
+
+.content .inner .community .review_board .review_list_container .review_list .review #img{
+    position: relative;
     display: inline-block;
     float: left;
-    margin-top: 40px;  
-    width: 490px; 
-    height: 390px; 
-    border: 1px solid #dfdfdf;
+    width: 90px;
+    height: 90px;
+    background-color: white;
 }
 
-.content .board1 #title{
-    padding: 10px 20px 10px 20px;
-    width: 100%;
-    height: 50px;
-    border-bottom: 1px solid #dfdfdf;
-}
-
-.content .board1 #title span{
-    font-size: 20px;
-    font-family: Hanna !important;
-}
-
-.content .board1 table{
-    display: block;
-    padding: 10px;
-}
-
-.content .board1 table tbody{
-    display: block;
-    width: 100%;
-}
-
-.content .board1 table tr{
-    display: block;
-    width: 100%;
-}
-
-.content .board1 table tr td a{
+.content .inner .community .review_board .review_list_container .review_list .review .info{
+    position: relative;
     display: inline-block;
-    width: 385px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    float: right;
+    width: 330px;
+    height: 90px;
 }
 
-.content .board2 table{
-    display: block;
-    padding: 10px;
+.content .inner .community .review_board .review_list_container .review_list .review .info #category{
+    color: gray;
+    font-size: 12px;
 }
 
-.content .board2 table tbody{
-    display: block;
+.content .inner .community .review_board .review_list_container .review_list .review .info #product_name{
+    font-size: 12px;
+}
+
+.content .inner .community .review_board .review_list_container .review_list .review .info #title{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.content .inner .community .review_board .review_list_container .review_list .review .info .sub_info{
+    position: absolute;
+    bottom: 0;
     width: 100%;
+    color: gray;
+    font-size: 12px;
 }
 
-.content .board2 table tr{
-    display: block;
-    width: 100%;
+.content .inner .community .review_board .review_list_container .review_list .review .info .sub_info #date{
+    float: right;
 }
 
-.content .board2 table tr td a{
-    display: inline-block;
-    width: 385px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.content .board2{
-    display: inline-block;
-    margin-top: 40px;  
-    margin-left: 20px;  
-    width: 490px; 
-    height: 390px; 
-    border: 1px solid #dfdfdf;
-}
-
-.content .board2 #title{
-    padding: 10px 20px 10px 20px;
-    width: 100%;
-    height: 50px;
-    border-bottom: 1px solid #dfdfdf;
-}
-
-.content .board2 #title span{
-    font-size: 20px;
-    font-family: Hanna !important;
-}
-
-span#bar{
-    color: #f36774;
-}
-
-img#smallimg{
+.content .inner .community .review_board .review_list_container .review_list .review .info .sub_info #name{
+    float: right;
     margin-right: 10px;
-    width: auto;
-    height: 28px;
 }
+
+.content .inner .community .free_board{
+    position: relative;
+    margin-top: 90px;
+    width: 100%;
+}
+
+.content .inner .community .free_board .title{
+    position: relative;
+    width: 100%;
+    height: 35px;
+}
+
+.content .inner .community .free_board .title #head{
+    display: inline-block;
+    float: left;
+    color: #34404b;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content .inner .community .free_board .title #link{
+    display: inline-block;
+    float: right;
+    color: #969ca2;
+    font-size: 14px;
+}
+
+.content .inner .community .free_board .item_box{
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    height: 110px;
+}
+
+.content .inner .community .free_board .item_box .item{
+    position: relative;
+    display: inline-block;
+    float: left;
+    padding: 20px;
+    width: 230px;
+    height: 110px;
+    text-align: left;
+    box-shadow: 0px 2px 2px #dfdfdf;
+}
+
+.content .inner .community .free_board .item_box .item:nth-child(1){
+    background-color: #f3b5c4;
+}
+
+.content .inner .community .free_board .item_box .item:nth-child(2){
+    margin-left: 13px;
+    background-color: #91a9cf;
+}
+
+.content .inner .community .free_board .item_box .item:nth-child(3){
+    margin-left: 13px;
+    background-color: #7eceb5;
+}
+
+.content .inner .community .free_board .item_box .item:nth-child(4){
+    margin-left: 13px;
+    background-color: #91a9cf;
+}
+
+.content .inner .community .free_board .item_box .item:nth-child(1) #date{
+    color: #ffe1f1;
+    font-size: 12px;
+}
+
+.content .inner .community .free_board .item_box .item:nth-child(2) #date{
+    color: #b7cef7;
+    font-size: 12px;
+}
+
+.content .inner .community .free_board .item_box .item:nth-child(3) #date{
+    color: #a1f3da;
+    font-size: 12px;
+}
+
+.content .inner .community .free_board .item_box .item:nth-child(4) #date{
+    color: #b7cef7;
+    font-size: 12px;
+}
+
+.content .inner .community .free_board .item_box .item #name{
+    color: white;
+    font-size: 12px;
+}
+
+.content .inner .community .free_board .item_box .item #title{
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.content .inner .banner{
+    position: relative;
+    margin-top: 90px;
+    width: 100%;
+    height: 250px;
+    background-image: url("/assets/home/banner_img.png");
+    background-size: cover;
+    box-shadow: 0px 2px 2px #dfdfdf;
+}
+
+

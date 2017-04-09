@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204044327) do
+ActiveRecord::Schema.define(version: 20170407083830) do
+
+  create_table "announces", force: :cascade do |t|
+    t.string   "announce_title"
+    t.string   "announce_content"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "linetalks", force: :cascade do |t|
     t.string   "linetalk_content"
@@ -29,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170204044327) do
     t.string   "product_category"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.string   "product_sub_category"
   end
 
   create_table "reviewreplies", force: :cascade do |t|
@@ -50,6 +58,13 @@ ActiveRecord::Schema.define(version: 20170204044327) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.integer  "review_viewcount", default: 0
+  end
+
+  create_table "sojoong2talks", force: :cascade do |t|
+    t.string   "talk_thumbnail"
+    t.string   "talk_content"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "sudareplies", force: :cascade do |t|

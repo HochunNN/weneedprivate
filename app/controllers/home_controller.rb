@@ -1,15 +1,23 @@
 class HomeController < ApplicationController
+  
+  require 'will_paginate/array'
+  
+  ######### 소중이톡 적으려면 패스워드 쳐야함 
+  http_basic_authenticate_with name: "admin", password: "1234567890", only: [:page_sojoong2talk_write, :page_announce_write]
+  
+  
 ##########################################################################################  
 ################################메인화면 관련#############################################
 ##########################################################################################
 
   def page_main
     @linetalks = Linetalk.all.order("id desc")
-    @sudas = Suda.order("id desc")
-    @reviews = Review.all
+    @sudas = Suda.order("created_at desc").limit(4) #최근 4개
+    @reviews = Review.order("created_at desc").limit(4) #최근 4개
+    
   end
   
-  def page_main_linetalk_write   
+  def page_main_linetalk_write
     talk = Linetalk.new
     talk.linetalk_content = params[:linetalk_content_view]
     talk.save
@@ -17,37 +25,157 @@ class HomeController < ApplicationController
   end
 
 ##########################################################################################  
-##################################알림방 관련#############################################
+##################################공지사항 관련###########################################
 ##########################################################################################
 
+  def page_announce
+    @announces = Announce.order("id desc").paginate(:page => params[:page], :per_page => 10)
+  end
+
+  def page_announce_write
+    
+  end
+
+  def page_announce_write_save
+    annonunce = Announce.new
+    annonunce.announce_title = params[:announce_title_view]
+    annonunce.announce_content = params[:announce_content_view]
+    annonunce.save
+    
+    redirect_to "/home/page_announce"
+  end
 
 
+##########################################################################################  
+################################소중이톡 관련#############################################
+##########################################################################################
+
+  def page_sojoong2talk
+    @temp = Sojoong2talk.all
+    
+  end
 
 
+  def page_sojoong2talk_write
+    
+    
+    
+  end
 
-
-
-
-
+  def page_sojoong2talk_write_save
+    
+    sojoong2talk = Sojoong2talk.new
+    # 썸네일 저장
+    thumbnail = Sojoong2talkUploader.new
+    thumbnail.store!(params[:thumbnail_view])
+    sojoong2talk.talk_thumbnail = thumbnail.url
+    
+    #컨텐츠 저장
+    talk_content = Sojoong2talkUploader.new
+    talk_content.store!(params[:content_view])
+    sojoong2talk.talk_content = talk_content.url
+    
+    sojoong2talk.save
+    
+    redirect_to "/home/page_sojoong2talk"
+  end
 ##########################################################################################  
 ##############################알뜰게시판 관련#############################################
 ##########################################################################################
   
   def page_price
-    # params[:sort] ||= "product_price"
-    if params[:search_product_name].present?
-      @search_product_name = Product.where("product_title LIKE '%#{params[:search_product_name]}%'").order("product_price asc").group_by {|t| t.product_title}
-    else
-      @search_product_name = nil
-    end
     
+      # 타이틀 정보만 있는 경우
+      if (params[:lowest_price].present? == false) && (params[:categories].present? == false) && (params[:search_product_name].present? == true)
+      
+        @search_product_name = Product.where("product_title LIKE '%#{params[:search_product_name]}%'").order("product_price asc").group_by {|t| t.product_title}
+        @search_product_name_keys = @search_product_name.keys
+        @search_product_name_keys_paginate = @search_product_name_keys.paginate(:page => params[:page], :per_page => 20)
+      
+      # 가격정보만 있는 경우
+      elsif (params[:lowest_price].present? == true) && (params[:categories].present? == false) && (params[:search_product_name].present? == false)
+      
+        @search_product_name = Product.where("product_price >= ? AND product_price <= ?", params[:lowest_price], params[:highest_price]).order("product_price asc").group_by {|t| t.product_title}
+        @search_product_name_keys = @search_product_name.keys
+        @search_product_name_keys_paginate = @search_product_name_keys.paginate(:page => params[:page], :per_page => 20)
+        
+      
+      # 가격정보, 카테고리 있고 타이틀 없는경우 
+      elsif (params[:lowest_price].present? == true) && (params[:categories].present? == true) &&  (params[:search_product_name].present? == false) 
+      
+        product_sub_category = Product.pluck(:product_sub_category).uniq
+      
+        category_arr = params[:categories].split(",")
+        sub_category_arr = category_arr & product_sub_category
+        main_category_arr = category_arr - sub_category_arr
+        
+        result_a = Product.where(product_category: main_category_arr).pluck(:id).uniq
+        result_b = Product.where(product_sub_category: sub_category_arr).pluck(:id).uniq
+        ids = result_a + result_b
+        
+        # sub카테고리 그냥 카테고리 인것들 고르기.
+        prducts = Product.where(id: ids)
+        
+      #   # # 타이틀로 거르기
+      #   # result_d = result_c.where(product_title: params[:search_product_name])
+        
+        # 가격정보까지 거르기.
+        @search_product_name = prducts.where("product_price >= ? AND product_price <= ?", params[:lowest_price].to_i, params[:highest_price].to_i).order("product_price asc").group_by {|t| t.product_title}
+        
+        @search_product_name_keys = @search_product_name.keys
+        @search_product_name_keys_paginate = @search_product_name_keys.paginate(:page => params[:page], :per_page => 20)
+          
+      
+      # 가격정보, 타이틀만 있을때
+      elsif (params[:lowest_price].present? == true) && (params[:categories].present? == false) &&  (params[:search_product_name].present? == true) 
+        
+        
+        products_title_filter = Product.where("product_title LIKE '%#{params[:search_product_name]}%'")
+        products_price_filter = products_title_filter.where("product_price >= ? AND product_price <= ?", params[:lowest_price].to_i, params[:highest_price].to_i)
+        @search_product_name = products_price_filter.order("product_price asc").group_by {|t| t.product_title}
+        @search_product_name_keys = @search_product_name.keys
+        @search_product_name_keys_paginate = @search_product_name_keys.paginate(:page => params[:page], :per_page => 20)
+      
+      # 다 있을 때
+      elsif (params[:lowest_price].present? == true) && (params[:categories].present? == true) &&  (params[:search_product_name].present? == true)     
+      
+        product_sub_category = Product.pluck(:product_sub_category).uniq
+      
+        category_arr = params[:categories].split(",")
+        sub_category_arr = category_arr & product_sub_category
+        main_category_arr = category_arr - sub_category_arr
+        
+        result_a = Product.where(product_category: main_category_arr).pluck(:id).uniq
+        result_b = Product.where(product_sub_category: sub_category_arr).pluck(:id).uniq
+        ids = result_a + result_b
+        
+        # sub카테고리 그냥 카테고리 인것들 고르기.
+        prducts = Product.where(id: ids)
+        
+        # 타이틀로 거르기
+        products_title_filter = products.where("product_title LIKE '%#{params[:search_product_name]}%'")
+        
+        # 가격정보까지 거르기.
+        @search_product_name = products_title_filter.where("product_price >= ? AND product_price <= ?", params[:lowest_price].to_i, params[:highest_price].to_i).order("product_price asc").group_by {|t| t.product_title}
+        
+        @search_product_name_keys = @search_product_name.keys
+        @search_product_name_keys_paginate = @search_product_name_keys.paginate(:page => params[:page], :per_page => 20)
+    
+      end
     
   end
+    
+    
+
 ##########################################################################################  
 ##############################자유게시판 관련#############################################
 ##########################################################################################
   def page_board_free
     @sudas = Suda.order("id desc")
+    
+    if params[:post_id]
+        @id_value = params[:post_id]
+    end
   
   end
   
@@ -135,6 +263,10 @@ class HomeController < ApplicationController
     
   end
   
+  def page_board_free_request
+    @contents = Suda.find(params[:post_id])
+    render json: @contents
+  end
   
 #####################댓글 달기#####################################  
   def page_board_free_reply_save
@@ -295,5 +427,5 @@ class HomeController < ApplicationController
 ##########################################################################################
 ##########################################################################################
   
-  
+
 end

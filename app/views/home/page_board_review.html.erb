@@ -1,125 +1,149 @@
-	<div id="inner" style="position:relative; left: 50%; margin-left: -500px; padding-top: 20px; padding-bottom: 20px; width: 1000px;">
-	    <div id="hot100Title" style="margin-bottom: 20px; padding: 20px; height: 82px; width: 100%; border: 1px solid #dfdfdf; background-color: white;">
-	        <span style="float: left; color: black; font-size: 30px; font-weight: 700; ">리뷰하는 수다방&nbsp;</span>
-            <span style="float: left; margin-top: 14px; color: black; font-size: 16px;">정보를 나누는 공간</span>
-	    </div>  
-  <table class="table table-striped">
-    <thead style="border-bottom:0.5px solid black">
-      <tr>
-        <th class="col-xs-1">#</th>
-        <th class="col-xs-7">제목</th>
-        <th class="col-xs-1">글쓴이</th>
-        <th class="col-xs-2">쓴날</th>
-        <th class="col-xs-1">조회수</th>
-        <!--<th class="col-xs-1.5"></th>-->
-      </tr>
-    </thead>
-    <% @reviews.each do |r| %>
-    <tr>
-      <td><%= r.id %></td>
-      <td>
-        <a href="/home/page_board_review_detail/<%= r.id %>" class="viewcounter" value="<%= r.id %>" style="color:black">
-          <%= r.review_title.truncate(25) %>
-        </a>
-        [<%= r.reviewreplies.length%>]
-      </td>
-      <td><%= r.review_writer %></td>
-      <td><%= r.created_at.strftime('%m-%d %H:%M') %></td>
-      <td><!--조회수!-->
-          <%= r.review_viewcount %>
-        
-      </td>
-      <!--<td>-->
-        <!--!!!!!삭제하는거!!!!-->
-        <!-- Trigger the modal with a button -->
-        <!--<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">삭제</button>-->
-        
-        <!-- Modal -->
-        <!--<div id="myModal" class="modal fade" role="dialog">-->
-        <!--  <div class="modal-dialog">-->
-        
-            <!-- Modal content-->
-            
-        <!--    <div class="modal-content">-->
-        <!--      <form action="/home/page_board_review_delete/%= r.id %>" method="post">-->
-        <!--          <div class="modal-header">-->
-        <!--            <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-        <!--            <h4 class="modal-title">비밀번호를 입력해주세요</h4>-->
-        <!--          </div>-->
-        <!--          <div class="modal-body">-->
-                    
-        <!--              <div class="form-group">-->
-        <!--                <label for="exampleInputEmail1">비밀번호</label>-->
-        <!--                <input type="password" class="form-control" id="exampleInputEmail1" name="checkreviewpw_view" placeholder="비밀번호">-->
-        <!--              </div>-->
-                      
-        <!--          </div>-->
-        <!--          <div class="modal-footer">-->
-        <!--            <button type="submit" class="btn btn-default">Submit</button>-->
-                    
-        <!--          </div>-->
-        <!--      </form>-->
-        <!--    </div>-->
-        
-        <!--  </div>-->
-        <!--</div>-->
-        
-        <!--!!!!!!!!!수정하는거!!!!!!!!!!!!!-->
-        <!-- Trigger the modal with a button -->
-        <!--<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#reviseModal">수정</button>-->
-        
-        <!-- Modal -->
-        <!--<div id="reviseModal" class="modal fade" role="dialog">-->
-        <!--  <div class="modal-dialog">-->
-        
-            <!-- Modal content-->
-        <!--    <div class="modal-content">-->
-        <!--      <form action="/home/page_board_review_update/%= r.id %>" method="post">-->
-        <!--          <div class="modal-header">-->
-        <!--            <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-        <!--            <h4 class="modal-title">비밀번호를 입력해주세요</h4>-->
-        <!--          </div>-->
-        <!--          <div class="modal-body">-->
-                    
-        <!--              <div class="form-group">-->
-        <!--                <label for="exampleInputEmail1">비밀번호</label>-->
-        <!--                <input type="password" class="form-control" id="exampleInputEmail1" name="checkreviewpw_view" placeholder="비밀번호">-->
-        <!--              </div>-->
-        <!--          </div>-->
-        <!--          <div class="modal-footer">-->
-        <!--            <button type="submit" class="btn btn-default">Submit</button>  -->
-        <!--          </div>-->
-        <!--      </form>-->
-        <!--    </div>-->
-        <!--  </div>-->
-        <!--</div>-->
-      <!--</td>-->
-    </tr>
-    <% end %>
-  </table>
-    <button class="btn btn-default" type="button" onclick="location.href='/home/page_board_review_write'" style="background: none; background-color: none; border-radius: 0;">
-      리뷰쓰기
-    </button>
-  </div>
-  
+<div class="front">
+	<div class="inner">
+		<span style="font-size: 55px; color: white;">커뮤니티</span><br>
+		<span style="font-size: 45px; color: #ffdeed;">리뷰게시판입니다!</span>
+		<img id="main_img" src="/assets/community_review/front_comunity_review.png">
+	</div>
+</div>
+<div class="inner">
+	<div class="review_best">
+		<div class="title">
+			<span id="head">베스트리뷰_</span>
+		</div>
+		<div class="item_box">
+			<a id="item" style="background-image: url(/assets/home/sojoong2talk1.png);">
+				
+			</a>
+			<a id="item" style="background-image: url(/assets/home/sojoong2talk2.png);">
+				
+			</a>
+			<a id="item" style="background-image: url(/assets/home/sojoong2talk3.png);">
+				
+			</a>
+			<a id="item" style="background-image: url(/assets/home/sojoong2talk4.png);">
+				
+			</a>
+		</div>
+	</div>
+	<div class="review_list">
+		<div class="title">
+			<span id="head">리뷰게시판_</span>
+		</div>
+		<div class="list_container">
+			<% @reviews.each do |r| %>
+				<div class="review"
+				<% if params[:num]=="#{r.id}" %> 
+					<%= "target=y" %>
+				<% end %>>
+					<div class="num">
+						<%= r.id %>
+					</div>
+					<div class="info1">
+						<span id="product_name">
+							<%= r.review_prod_name %>
+						</span><br>
+						<span id="date">
+							<%= r.created_at.strftime("%Y-%d-%m %H:%M") %>
+						</span>
+					</div>
+					<div class="info2">
+						<span class="open" style="display: inline-block; width: 100%; cursor: pointer;">
+						<span id="title">
+							<%= r.review_title.truncate(25) %>
+						</span><br>
+						<span id="name">
+							<%= r.review_writer %>
+						</span>
+						</span>
+						<p style="margin-top: 20px;"><%= r.review_content %></p>
+						<!--댓글 들어갈곳!-->
+						<!--댓글 보여주는 곳-->
+						<br>
+						<span style="font-weight:bold">댓글 <%= r.reviewreplies.length %>개</span>
+						<div class="reple">
+							
+							<% if r.reviewreplies.present? %>
+								<% r.reviewreplies.each do |rr| %>
+									<span id="s_name"><%= rr.reviewreplyname %></span>
+									<span id="s_content"><%= rr.reviewreplycontent %></span><br>
+								<% end %>
+							<% end %>
+						</div>
+						<br>
+						<!--댓글 쓰는곳-->
+						<div style="margin-top: 5px; width: 100%;">
+						    <input type="text" class="reply_name" name="reply_writer_name" id="exampleInputEmail1" placeholder="글쓴이" style="width: 130px;">
+						    <input type="text" class="reply_content" name="reply_content" id="exampleInputEmail1" placeholder="내용" style="width: 320px;">
+						    <button type="submit" value="<%= r.id %>" class="reply_submit" style="display: inline-block; width: 80px;padding: 0px 5px 0px 5px; background-color: white; border: 1px solid gray;">댓글달기</button>
+					    </div>
+						<!--댓글 마무리-->
+						<!--접는 버튼-->
+						<span class="f_close" style="display: inline-block; margin-top: 10px; padding: 5px 0px 5px 0px; width: 100%; color: white; font-weight: bold; background-color: #cccccc; cursor: pointer; text-align: center;">접기</span>
+					</div>
+					<div class="info3">
+						<span id="view">
+							<%= r.review_viewcount %>
+						</span>
+						<span id="comment">
+							<%= r.reviewreplies.count %>
+						</span>
+						<span id="like">21</span>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<button class="btn btn-default" type="button" onclick="location.href='/home/page_board_review_write'" style="background: none; background-color: none; border-radius: 0;">
+	      리뷰쓰기
+	    </button>
+	</div>
+</div>
+<link rel="stylesheet" href="/assets/board_review.css">
+<script src="/assets/board_review.js"></script>
 
 <script>
-  $("document").ready(function(){
-    $("#menu4").css("color", "black")
-    
-    // 클릭시 조회수 올라가는 ajax
-    
-    $(".viewcounter").on("click", function(){
-				
-      var id = $(this).attr('value');
-      
-        $.ajax({
-        method: "POST",
-        url: "/home/page_board_review_viewcount",
-        data: { post_id: id }
-      });
-    });
-    
-    
-  })
+
+	$( document ).ready(function() {
+	// 댓글 달기.
+		$(".reply_content").keydown(function (key) {
+			if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
+	        	var tag = $(this).parents(".info2")[0]
+	    	tag = $(tag).find(".reple")
+	            post_id = $(':focus').siblings(".reply_submit").attr("value");
+	            reply_name = $(':focus').siblings(".reply_name").val();
+	            reply_content = $(':focus').val();
+	            $.ajax({
+	                method: "POST",
+	                url: "/home/page_board_review_reply_save",
+	                data: {id_of_post: post_id , reply_writer_name: reply_name, reply_content: reply_content },
+	                success: function(){
+	                    	                $(tag).append("<span id='s_name'>" + reply_name + "</span>" +
+									"<span id='s_content'>" + reply_content + "</span><br>");
+	                $(".reply_name").val('');
+	                $(".reply_content").val('');
+	                }
+	                
+	            })
+	        }
+	    });
+	    $(".reply_submit").click(function(){
+	    	var tag = $(this).parents(".info2")[0]
+	    	tag = $(tag).find(".reple")
+	        post_id = $(this).attr("value");
+	        reply_name = $(this).siblings(".reply_name").val();
+	        reply_content = $(this).siblings(".reply_content").val();
+	        $.ajax({
+	            method: "POST",
+	            url: "/home/page_board_review_reply_save",
+	            data: {id_of_post: post_id , reply_writer_name: reply_name, reply_content: reply_content },
+	            success: function(){
+	                $(tag).append("<span id='s_name'>" + reply_name + "</span>" +
+									"<span id='s_content'>" + reply_content + "</span><br>");
+	                $(".reply_name").val('');
+	                $(".reply_content").val('');
+	            }
+	            
+	        })
+	    });
+	});
+	
 </script>

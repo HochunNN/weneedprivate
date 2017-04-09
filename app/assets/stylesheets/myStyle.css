@@ -1,0 +1,217 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.nav{
+    transition: 0.3s;
+}
+
+.nav .inner{
+    position: relative;
+    left: 50%;
+    margin-left: -480px;
+    width: 960px;
+    height: 100%;
+}
+
+.nav .inner #logo{
+    display: inline-block;
+    float: left;
+    width: 120px;
+    height: 25px;
+    background-image: url("/assets/nav_logo_white.png");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+}
+
+.nav .inner .search{
+    display: inline-block;
+    float: right;
+    height: 25px;
+}
+
+.nav .inner .search #text{
+    display: inline-block;
+    float: left;
+    padding-left: 10px;
+    width: 250px;
+    height: 100%;
+    border: 2px solid white;
+    background-color: rgba( 255, 255, 255, 0 );
+}
+
+.nav .inner .search #text::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+.nav .inner .search #text::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+.nav .inner .search #text:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
+.nav .inner .search #text:-moz-placeholder { /* Firefox 18- */
+  color: white;
+}
+
+.nav .inner .search .temp::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: black !important;
+}
+.nav .inner .search .temp::-moz-placeholder { /* Firefox 19+ */
+  color: black !important;
+}
+.nav .inner .search .temp::-ms-input-placeholder { /* IE 10+ */
+  color: black !important;
+}
+.nav .inner .search .temp::-moz-placeholder { /* Firefox 18- */
+  color: black !important;
+}
+
+
+.nav .inner .search #submit{
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    width: 23px;
+    height: 23px;
+    border: 0px;
+    background-color: rgba( 255, 255, 255, 0 );
+    background-image: url("/assets/search_ico_white.png");
+    background-size: cover;
+}
+
+.nav .inner .page_menu {
+    display: inline-block;
+    float: left;
+    height: 100%;
+    list-style: none;
+}
+
+.nav .inner .page_menu li{
+    display: inline-block;
+    margin-left: 20px;
+    cursor: default;
+}
+
+
+.nav .inner .page_menu li a{
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.nav .inner .page_menu li a:hover{
+    cursor: pointer;
+}
+
+.nav .inner .page_menu li #community:hover{
+    text-decoration: none;
+    cursor: default;
+}
+
+.nav .inner #communityDiv{
+    position: absolute;
+    display: none;
+    top: 30px;
+    left: 490px;
+}
+
+.nav .inner #communityDiv a{
+    color: white;
+}
+
+.nav .inner #communityDiv a:nth-child(2){
+    margin-left: 20px;
+}
+
+#communitydiv{
+    position: absolute;
+    visibility: hidden;
+    top: 0px;
+    padding: 5px 15px 5px 15px;
+    width: 160px;
+    height: 80px;
+    background-color: white;
+    border: 1px solid #dfdfdf;
+    z-index: 9999;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+}
+
+#communitydiv a{
+    display: block;
+    padding: 5px;
+    color: gray;
+    font-size: 18px;
+    font-family: Hanna !important;
+    transition: 0.5s;
+}
+
+#communitydiv a:hover{
+    color: black;
+    cursor: pointer;
+}
+
+.content{
+    position: relative;
+    width: 100%;
+}
+
+.content .inner{
+    position: relative;
+    left: 50%;
+    margin-left: -480px;
+    padding-top: 90px;
+    width: 960px;
+    height: 100%;
+}
+
+.footer{
+    position: relative;
+    margin-top: 60px;
+    padding-top: 30px;
+    width: 100%;
+    background-color: #eeeeee;
+}
+
+
+.footer .inner{
+    position: relative;
+    left: 50%;
+    margin-left: -480px;
+    width: 960px;
+    height: 100%;
+}
+
+.footer .inner .title{
+    display: block;
+    margin-top: 10px;
+    width: 149px;
+    height: 84px;
+    background-image: url("/assets/footer_logo.png");
+    background-size: cover;
+}
+
+.footer .inner .info{
+    display: block;
+    margin-top: 30px;
+    padding-bottom: 90px;
+    color: #969ca2;
+    font-size: 12px;
+}
+
+.footer .inner .info a{
+    color: #969ca2;
+}

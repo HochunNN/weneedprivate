@@ -1,165 +1,102 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="height: 100px; width: 1000px;">
-	<!-- Indicators -->
-  	<ol class="carousel-indicators">
-    	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    	<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    	<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  	</ol>
-
-  	<!-- Wrapper for slides -->
-  	<div class="carousel-inner" role="listbox">
-    	<div class="item active">
-      		<img style="height:100px; width: 1000px;" src=<%=image_path "slidebackground.png"%> alt="1">
-      		<div class="carousel-caption">
-        		1
-      		</div>
-    	</div>
-    	<div class="item">
-      		<img style="height:100px; width: 1000px;" src=<%=image_path "slidebackground.png"%> alt="2">
-      		<div class="carousel-caption">
-        		2
-      		</div>
-    	</div>
-    	<div class="item">
-      		<img style="height:100px; width: 1000px;" src=<%=image_path "slidebackground.png"%> alt="3">
-      		<div class="carousel-caption">
-        		3
-      		</div>
-    	</div>
-  	</div>
-  	<!-- Controls -->
-  	<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" style="background-image: none;">
-    	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    	<span class="sr-only">Previous</span>
-  	</a>
-  	<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" style="background-image: none;">
-    	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    	<span class="sr-only">Next</span>
-  	</a>
-</div>
-<div class="search">
-	<div class="category">
-		<div id="left">카테고리</div>
-		<div id="right">
-		    <!--
-			<ul>
-				<li id="man">남성</li>
-				<li id="woman">여성</li>
-			</ul>
-			<br>
-			<ul id="temp1" style="display: none;">
-				<li>남성 카테고리1</li>
-				<li>남성 카테고리2</li>
-				<li>남성 카테고리3</li>
-				<li>남성 카테고리4</li>
-				<li>남성 카테고리5</li>
-			</ul>
-			<ul id="temp2" style="display: none;">
-				<li>여성 카테고리1</li>
-				<li>여성 카테고리2</li>
-				<li>여성 카테고리3</li>
-				<li>여성 카테고리4</li>
-				<li>여성 카테고리5</li>
-				<li>여성 카테고리6</li>
-				<li>여성 카테고리7</li>
-				<li>여성 카테고리8</li>
-			</ul>
-			-->
-			<span style="color: gray; font-family: Hanna !important;">카테고리 준비중 입니다.</span>
-		</div>
-	</div>
-	<div class="option">
-		<div id="left">옵션</div>
-		<div id="right">
-		    <span style="color: gray; font-family: Hanna !important;">옵션 준비중 입니다.</span>
-		</div>
-	</div>
-	<div class="name">
-		<div id="left">검색</div>
-		<form action="/home/page_price" method="get" style="display:inline">
-			<div id="right">
-				<button type=submit id="search2" style="background-image: url(<%= image_path "sojoong2_search.jpg" %>); border: 0px;"></button>
-			    <!--<span id="search2" style="background-image: url(< image_path "sojoong2_search.jpg" %>)"></span>-->
-			    <input id="product_name2" name="search_product_name" type="text" placeholder="제품명 혹은 일부로 검색!! 검색하면 제품 비교가 나와요~.~">
-			</div>
-		</form>
-		
-			<!--<div id="right">-->
-			<!--    <span id="search2" style="background-image: url(<= image_path "sojoong2_search.jpg" %>)"></span>-->
-			<!--    <input id="product_name2" type="text">-->
-			<!--</div>-->
-		
+<div class="front">
+	<div class="inner">
+		<span style="font-size: 55px; color: white;">가격비교</span><br>
+		<span style="font-size: 45px; color: #b7cdf7;">비교중이에요!</span>
+		<img id="main_img" src="/assets/price/front_price.png">
 	</div>
 </div>
-
-
-<% if @search_product_name == nil %>
-<% else %>
-	<div class="result">
-		<%= @search_product_name.values.flatten.size  %>개의 상품이 검색되었어여
-		<% @search_product_name.each do |product_title,contents| %>
-		    <div class="item">
-				<div id="img">
-					<img id="img" style="filter: blur(5px);" src="<%= contents.first.product_picture_url %>">
-				</div>
-				<div id="info">
-					<span id="categories">카테고리</span>
-					<br>
-					<span id="name"><%= product_title %></span>
-					<br>
-					<% if contents.first.product_price != contents.last.product_price %>
-		    			<span id="price"><%= contents.first.product_price %>원 ~ <%= contents.last.product_price %>원</span>
-		            <% else %>
-		                <span id="price"><%= contents.first.product_price %>원</span>
-		            <% end %>
-					<div id="subinfo">
-						만족도 <span>0.0점</span> (0개의 한줄 상품평이 등록되어 있습니다)
-					</div>
-				</div>
-				<div id="siteinfo">
+<div class="inner">
+	<div class="top_menu">
+		<div class="title">
+			<span id="head">가격비교_</span>
+		</div>
+		<div class="search">
+			<div class="option_category">
+				<div id="left">카테고리</div>
+				<div id="right">
 					<ul>
-					    <% for content in contents %>
-					        <li>
-		                        <a href="<%= content.product_website_detail_address %>">
-		                            <%= content.product_website%>
-		                        </a>
-		                        <span><%= content.product_price %>원</span>
-		                    </li>
-		                <% end %>
+						<li id="man">남성</li>
+						<li id="woman">여성</li>
+						<li>애널</li>
+						<li id="condom">콘돔</li>
+						<li>젤/향수/스파</li>
+						<li>SM용품</li>
+						<li>란제리</li>
+					</ul>
+					<br>
+					<ul id="temp1" style="display: none;">
+						<li id="sub">인형(중/대형)</li>
+						<li id="sub">컵홀/핸드잡</li>
+						<li id="sub">남성 보조용품</li>
+					</ul>
+					<ul id="temp2" style="display: none;">
+						<li id="sub">딜도</li>
+						<li id="sub">바이브레이터/페어리</li>
+						<li id="sub">여성 보조용품</li>
+					</ul>
+					<ul id="temp3" style="display: none;">
+						<li id="sub">일반형</li>
+						<li id="sub">초박형</li>
+						<li id="sub">기능형</li>
+						<li id="sub">기타</li>
 					</ul>
 				</div>
 			</div>
+			<div class="option_price">
+				<div id="left">가격</div>
+				<div id="right">
+					<span>~1만원</span>
+					<span>~5만원</span>
+					<span>~10만원</span>
+					<span>~50만원</span>
+					<p style="float:right">
+						<input id="lowest" type="number" value="0"> 원  ~  <input id="highest" type="number" value="9999999"> 원
+					</p>
+				</div>
+			</div>
+			
+			<!--<div class="option_etc">-->
+			<!--	<div id="left">기타</div>-->
+			<!--	<div id="right">-->
+			<!--		준비중입니다...-->
+			<!--	</div>-->
+			<!--</div>-->
+			
+			<div class="option_name">
+				<div id="left">검색</div>
+				<div id="right">
+					<div class="options">
+						<span id="category_result"></span>
+						<span id="price_result"></span>
+						<span id="etc_result"></span>
+					</div>
+					<a onclick="tt()"></a>
+					<input type="text">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--제품 몇개 검색 되었는지-->
+	<div>
+		<% if @search_product_name == nil %>
+			0개의 상품이 검색되었어여
+		<% else %>
+			<%= @search_product_name.values.flatten.size %>개의 상품이 검색되었어여
 		<% end %>
-    </div>
-<% end %>
+	</div>
+	
+	<div id="my-posts" >
+	  <%= render partial: "layouts/page_price" %>
+	</div>
+	
+	<div id="infinite-scrolling">
+		<% if @search_product_name_keys_paginate.present? %>
+			<%= will_paginate @search_product_name_keys_paginate %>
+		<% end %>
+	</div>
+	
+</div>
 
 
-<script>
-	$("document").ready(function(){
-	    $("#menu3").css("color", "black")
-	   // $("#product_name2").keydown(function (key) {
-    //         if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
-	   //     	var uri = "page_price?search_product_name=" + $("#product_name2").val()
-	   //     	encodeURI(uri);
-				// location.href=uri;
-    //     	}
-    //       });
-      //    $("#search2").click(function(){
-      //    	var uri = "page_price?search_product_name=" + $("#product_name2").val()
-      //    	encodeURI(uri);
-    		// location.href=uri;
-      //    })
-		$('#man').mouseenter(function(){
-			$('#man').css("font-weight", "bold")	
-			$('#temp1').css("display", "inline-block")	
-			$('#woman').css("font-weight", "normal")	
-			$('#temp2').css("display", "none")	
-		})
-		$('#woman').mouseenter(function(){
-			$('#man').css("font-weight", "normal")	
-			$('#temp1').css("display", "none")	
-			$('#woman').css("font-weight", "bold")	
-			$('#temp2').css("display", "inline-block")	
-		})
-	})
-</script>
+<link rel="stylesheet" href="/assets/price.css">
+<script src="/assets/price.js"></script>

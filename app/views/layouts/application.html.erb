@@ -1,98 +1,71 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>소중이닷컴 Baby</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-    <!--Bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!--구글 검색?-->
-    <meta name="google-site-verification" content="OtpdfC_tFJpAp2XosSHbV3fP14OzN0JWSYuSJfGOfoA" />
-    <meta name="description" itemprop="description" content="대한민국 최초! 성인용품 가격비교 사이트 소중이닷컴 입니다!! 빠르게 발전시켜나가겠습니당 지켜봐주세요 한번씩 들어와보세요 돈드는거 아니용~~~~~" />
+    <head>
+        <title>소중이닷컴 Baby</title>
+        <%= csrf_meta_tags %>
+        <link rel="stylesheet" href="/assets/myStyle.css">
     
-    
-    
-    <!--jquery_validation-->
-    
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
-	  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></script>
-  
-    <!--jquery autocomplete-->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-  </head>
-  <body>
-    <div class="header">
-			<a href="/"><img src=<%= image_path "sojoong2_header.jpg" %>></a>
-			<br><br>
-			<span class="counter" data-count="39">0</span>개의 사이트에서 <span class="counter" data-count="100861">0</span>개의 상품이 비교되고 있어요!
-		</div>
-		<div class="nav">
-			<ul>
-				<li><a id="menu1" href="/home/page_main">메인</a></li>
-				<li><a id="menu2" href="/home/page_announce">알림방</a></li>
-				<li><a id="menu3" href="/home/page_price">알뜰방</a></li>
-				<li><a id="menu4" style="cursor: default;">수다방</a></li>	
-			</ul>
-			|
-			<form action="/home/page_price" method="get" style="display:inline">
-				<input type="text" name="search_product_name" placeholder="제품명 혹은 일부로 검색!">
-				<button type=submit id="search" style="background-image: url(<%= image_path "sojoong2_search.jpg" %>); border: 0px;">
-			</form>
-			<!--<input id="product_name" type="text" placeholder="빠른 제품 검색">-->
-			<!--<span id="search" style="background-image: url(<= image_path "sojoong2_search.jpg" %>)"></span>-->
-		</div>
-		<!--<div id="menu3div">-->
-			<!--<a style="cursor: default;">카테고리 준비중입니다.</a>-->
-		<!--</div>-->
-		<div id="menu4div">
-			<a href="/home/page_board_free">자유로운 수다방</a>
-			<a href="/home/page_board_review">리뷰하는 수다방</a>
-		</div>
-		<div class="content">
-			<%= yield %>
-		</div>
-		<div class="footer">
-			Made by <span>WeLoveListen</span> | welovelisten@gmail.com
-		</div>
-		
-		
-		<!--에러메세지 뜨게하기(게시판들!)-->
-		<input type="hidden" id="hidden_notice" value="<%=notice%>">
-  
-  </body>
+        <!--Bootstrap-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+        <!--구글 검색?-->
+        <meta name="google-site-verification" content="OtpdfC_tFJpAp2XosSHbV3fP14OzN0JWSYuSJfGOfoA" />
+        <meta name="description" itemprop="description" content="대한민국 최초! 성인용품 가격비교 사이트 소중이닷컴 입니다!! 빠르게 발전시켜나가겠습니당 지켜봐주세요 한번씩 들어와보세요 돈드는거 아니용~~~~~" />
+        
+        <!--jquery autocomplete-->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+        
+        <!--jquery_validation-->
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></script>
+        
+        <!--summernote-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/lang/summernote-ko-KR.js"></script>
+        
+    </head>
+    <body>
+        <div class="nav">
+        	<div class="inner">
+        		<a href="/home/page_main"  id="logo"></a>
+        		<form class="search" action="/home/page_price" method="get">
+        			<input id="text" type="text" name="search_product_name" placeholder="제품명 혹은 일부로 검색!"/>
+        			<input id="submit" type="submit" value="">
+        		</form>
+        		<ul class="page_menu">
+        			<li><a href="/home/page_main">메인</a></li>
+        			<li><a href="/home/page_announce">공지사항</a></li>
+        			<li><a href="/home/page_sojoong2talk">소중이톡</a></li>
+        			<li><a href="/home/page_price">가격비교</a></li>
+        			<li><a id="community">커뮤니티</a></li>
+        		</ul>
+        		<span id="communityDiv">
+        			<a href="/home/page_board_review">리뷰게시판</a>
+        			<a href="/home/page_board_free">자유게시판</a>
+        		</span>
+        	</div>
+        </div>
+        <div class="content">
+            <%=yield%>		
+        </div>
+        <div class="footer">
+        	<div class="inner">
+        		<div class="title">			
+        		</div>
+        		<div class="info">
+        			<a href="/">개인정보 취급방침</a> | <a href="/">이용약관</a> | <a href="/">제휴문의</a><br><br>
+        			<img src="/assets/nav_logo_black.png"><br>
+        			www.sojoong2.com<br><br>
+        			사업자등록번호:<br>
+        			전화번호:<br>
+        		</div>
+        	</div>
+        </div>
+    </body>
 </html>
-<script src="/assets/count.js"></script>
-<script src="/assets/menudropdown.js"></script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-89884317-1', 'auto');
-  ga('send', 'pageview');
-  $("#product_name").keydown(function (key) {
-    if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
-      var uri = "../home/page_price?search_product_name=" + $("#product_name").val()
-      encodeURI(uri);
-			location.href=uri;
-    }
-  });
-  $("#search").click(function(){
-  	var uri = "../home/page_price?search_product_name=" + $("#product_name").val()
-  	encodeURI(uri);
-		location.href=uri;
-  })
-  
-  var notice = $("#hidden_notice").val();
-    
-  if ( notice != "" ) {
-      alert(notice)
-  }
-  
-</script>
+<script src="/assets/myScript.js"></script>

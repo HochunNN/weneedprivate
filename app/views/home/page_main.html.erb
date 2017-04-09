@@ -1,158 +1,136 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="height: 200px; width: 730px;">
-	<!-- Indicators
-	<ol class="carousel-indicators">
-  	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-  	<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-  	<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-	</ol>
-	 -->
-	<!-- Wrapper for slides -->
-	<div class="carousel-inner" role="listbox">
-  	<div class="item active">
-  		<img style="height:200px; width: 1000px;" src=<%= image_path "sojoong2_banner2.jpg" %> alt="1">
-  		<div class="carousel-caption">
-    		
-  		</div>
-  	</div>
-	</div>
-	<!-- Controls 
-	<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" style="background-image: none;">
-  	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-  	<span class="sr-only">Previous</span>
-	</a>
-	<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" style="background-image: none;">
-  	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-  	<span class="sr-only">Next</span>
-	</a>
-	-->
+<div class="front">
+<div class="inner">
+	<span style="font-size: 55px; color: white;">국내최초</span><br>
+	<span style="font-size: 45px; color: #ffdeed;">성인용품 가격비교 사이트!!<br>www.sojoong2.com</span>
+	<img id="main_img" src="/assets/home/front_home.png">
 </div>
+</div>
+<div class="inner">
 <div class="announce">
-	<div>
-		<span><span id="bar">||</span> 소중이는요 <span id="bar">||</span></span>
+	<div class="title">
+		<span id="head">알림방_</span>
+		<span id="sub"></span>
+		<a href="/home/page_announce" id="link">더보기▶</a>
 	</div>
-	<br>
-	<공지 사항><br>
-	-소중이닷컴은 아직 baby 단계입니다. 빠르게 발전시켜나가겠습니다. 많은 관심 부탁드립니다!<br>
-	-한줄톡에 비속어 및 저속한 글은 자제해주세요~<br>
-	-소중이닷컴이 디자이너를 만났어요 캭캭캭캬 더 이뻐질게요~<br>
-	<br><br>
-	<업데이트 상황><br>
-	-더 이뻐지는 중, 데이터 다 긁어오는중!<br>
-	
-</div>
-<div class="chat">
-	<span><span id="bar">||</span> 한줄톡 <span id="bar">||</span></span>
-  <!--한줄 톡 보여주기-->
-  <div id="linetalks" style="padding: 10px; height: 470px; overflow: hidden">
-    <% @linetalks.each do |l| %>
-      <p id="linetalk"><%= l.linetalk_content %></p>
-    <% end %>
-  </div>
-  <div class="form-group" style="position: absolute; bottom: 0; margin: 0; width: 100%;">
-    <div id="page_main_line_talk" class="input-group">
-      <input id="linetalk_input" type="text" class="form-control talk_content" name="page_main_line_talk" placeholder="아무거나" style="width: 207px; background: none; background-color: none; border-radius: 0;" required>
-      <span class="input-group-btn">
-        <button class="btn btn-default talk_submit" type="button" style="background: none; border-radius: 0;">톡!</button>
-      </span>
-    </div><!-- /input-group -->
-  </div>
-</div>
-<div class="category">
-	<div>
-		<span><span id="bar">||</span> 인기 품목 <span id="bar">||</span></span>
+	<div class="item_box">
+		<a href="/home/page_announce?num=<%= Announce.last(3)[2].id %>" id="item" style="background-image: url(/assets/home/announce1.png);">
+			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%;"><%= Announce.last(3)[2].announce_title %></span><br>
+			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%; color: #a1f3da; font-size: 25px;"><%= Announce.last(3)[2].announce_content %></span>
+		</a>
+		<a href="/home/page_announce?num=<%= Announce.last(3)[1].id %>" id="item" style="background-image: url(/assets/home/announce2.png);">
+			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%;"><%= Announce.last(3)[1].announce_title %></span><br>
+			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%; color: #b7cef7; font-size: 25px;"><%= Announce.last(3)[1].announce_content %></span>
+		</a>
+		<a href="/home/page_announce?num=<%= Announce.last(3)[0].id %>" id="item" style="background-image: url(/assets/home/announce3.png);">
+			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%;"><%= Announce.last(3)[0].announce_title %></span><br>
+			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%; color: #ffe1f1; font-size: 25px;"><%= Announce.last(3)[0].announce_content %></span>
+		</a>
 	</div>
-	<ul style="padding: 20px; width: 100%; height: 60px; color: white; font-weight: bold; background-color: #dfdfdf; text-align: center;">
-		인기품목 준비중 입니다.
-	</ul>
 </div>
-<div class="board1">
-	<div id="title" >
-		<img id="smallimg" src=<%=image_path "sojoong2_image.jpg"%>><span>자유로운 수다방</span>
+<div class="sojoong2talk">
+	<div class="title">
+		<span id="head">소중이톡_</span>
+		<a href="/home/page_sojoong2talk" id="link">더보기▶</a>
 	</div>
-	<table>
-	    <% @sudas.slice(0,16).each do |s| %>
-    	   <tr>
-    	       <td style="width: 70px; font-family: Consolas;"><%= s.created_at.strftime('[%m-%d]') %></td>
-    	       <td style="width: 388px;">
-    	       	<a href="home/page_board_free_detail/<%= s.id  %>" style="color: black; font-family: Consolas;">
-    	       		<%= s.suda_title %>
-    	       		[<%= s.sudareplies.length%>]
-    	       	</a>
-    	       	
-    	       </td>
-    	   </tr>
-	    <% end %>
-	</table>
-</div>
-<div class="board2">
-	<div id="title">
-		<img id="smallimg" src=<%=image_path "sojoong2_image.jpg"%>><span>리뷰하는 수다방</span>
+	<div class="item_box">
+		<a href="/home/page_sojoong2talk?num=1" id="item" style="background-image: url(/assets/home/sojoong2talk1.png);">
+			
+		</a>
+		<a href="/home/page_sojoong2talk?num=2" id="item" style="background-image: url(/assets/home/sojoong2talk2.png);">
+			
+		</a>
+		<a href="/home/page_sojoong2talk?num=3" id="item" style="background-image: url(/assets/home/sojoong2talk3.png);">
+			
+		</a>
+		<a id="item" style="background-image: url(/assets/home/sojoong2talk4.png);">
+			
+		</a>
 	</div>
-	<table>
-	    <% @reviews.slice(0,16).each do |r| %>
-    	   <tr>
-    	       <td style="width: 70px; font-family: Consolas;"><%= r.created_at.strftime('[%m-%d]') %></td>
-    	       <td style="width: 388px;">
-	    	       	<a href="home/page_board_review_detail/<%= r.id %>" style="color: black; font-family: Consolas;">
-	    	       		<%= r.review_title %>
-	    	       		[<%= r.reviewreplies.length%>]
-	    	       	</a>
-	    	       	
-    	       </td>
-    	   </tr>
-	    <% end %>
-	</table>
 </div>
+<div class="poppular_product">
+	<div class="title">
+		<span id="head">알뜰방_</span>
+		<a href="/home/page_price" id="link">더보기▶</a>
+	</div>
+	<div class="container_temp">
+		<ul class="category">
+			<li>
+				<span><a href="/">남성용품_</a></span>
+				<a href="/">인형</a> | <a href="/">컵홀/핸드잡</a> | <a href="/">보조용품</a>
+			</li>
+			<li>
+				<span><a href="/">여성용품_</a></span>
+				<a href="/">딜도</a> | <a href="/">바이브/페어리</a> | <a href="/">보조용품</a>
+			</li>
+			<li>
+				<span><a href="/">애널_</a></span>
+				<a href="/">남성</a> | <a href="/">여성</a>
+			</li>
+			<li>
+				<span><a href="/">콘돔_</a></span>
+				<a href="/">초박형</a> | <a href="/">기능형</a> | <a href="/">일반형</a> | <a href="/">기타</a>
+			</li>
+			<li>
+				<span><a href="/">젤/향수/스파_</a></span>
+			</li>
+			<li>
+				<span><a href="/">SM용품_</a></span>
+			</li>
+			<li>
+				<span><a href="/">란제리/속옷_</a></span>
+			</li>
+		</ul>
+		<div class="item_box">
+			<div id="item">
+				<span>준비중</span><br>
+				<span style="color: #ffe1f1; font-size: 25px;">준비중이에요!</span>
+			</div>
+			<div id="item">
+				<span>준비중</span><br>
+				<span style="color: #b7cef7; font-size: 25px;">준비중이에요!</span>
+			</div>
+			<div id="item">
+				<span>준비중</span><br>
+				<span style="color: #a1f3da; font-size: 25px;">준비중이에요!</span>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="community">
+	<div class="review_board">
+		<div class="title">
+			<span id="head">리뷰방_</span>
+			<a href="/home/page_board_review" id="link">더보기▶</a>
+		</div>
+		<div class="item_box">
+			<% @reviews.each do |r| %>
+				<a href="/home/page_board_review?num=<%=r.id%>" class="item">
+					<span id="category">카테고리/카테고리</span><br>
+					<span id="product_name"><%= r.review_prod_name %></span><br>
+					<span id="title"><%= r.review_title.truncate(10) %></span><br>
+					<span id="name"><%= r.review_writer %></span><br>
+				</a>
+			<% end %>
+		</div>
+	</div>
+	<div class="free_board">
+		<div class="title">
+			<span id="head">자유방_</span>
+			<a href="/home/page_board_free" id="link">더보기▶</a>
+		</div>
+		<div class="item_box">
+			<% @sudas.each do |s| %>
+				<a href="/home/page_board_free?num=<%= s.id %>" class="item">
+					<span id="date"><%= s.created_at.strftime("%Y-%m-%d %H:%M") %></span><br>
+					<span id="name"><%= s.suda_writer %></span><br>
+					<span id="title"><%= s.suda_title.truncate(10) %></span>
+				</a>
+			<% end %>
+		</div>
+	</div>
+</div>
+<div class="banner">
+</div>
+<link rel="stylesheet" href="/assets/main.css">
+<script src="/assets/main.js"></script>
 
-    
-<script>
-  $("document").ready(function(){
-    $("#menu1").css("color", "black")
-  })
-  $("#linetalk_input").keydown(function (key) {
-    if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
-      talk_content = $(".talk_content").val()
-	    if (talk_content == "" || talk_content.length > 20) {
-	    	alert("20자 이하를 유지해 주셔요~")
-	    } else {
-		    $.ajax({
-		      method:"post",
-		      url: "/home/page_main_linetalk_write",
-		      data: { linetalk_content_view: talk_content },
-		      success: function(){
-		        $("#linetalks").prepend("<p id='linetalk'>"+talk_content+"</p>");
-		        $(".talk_content").val('');
-		      },  
-		      error: function(){
-		        alert("글이 작성되지 않았습니다.");
-		        $(".talk_content").val('');
-		      }
-		      // $("#reply_"+post_id).append("<p>"+post_content+"</p>")
-		      // $("#content_"+post_id).val('');
-		    })
-	    }
-    }
-  });
-  $(".talk_submit").click(function(){
-    talk_content = $(".talk_content").val()
-    if (talk_content == "" || talk_content.length > 20) {
-    	alert("20자 이하를 유지해 주셔요~")
-    } else {
-	    $.ajax({
-	      method:"post",
-	      url: "/home/page_main_linetalk_write",
-	      data: { linetalk_content_view: talk_content },
-	      success: function(){
-	        $("#linetalks").prepend("<p id='linetalk'>"+talk_content+"</p>");
-	        $(".talk_content").val('');
-	      },  
-	      error: function(){
-	        alert("글이 작성되지 않았습니다.");
-	        $(".talk_content").val('');
-	      }
-	      // $("#reply_"+post_id).append("<p>"+post_content+"</p>")
-	      // $("#content_"+post_id).val('');
-	    })
-    }
-  })
-</script>

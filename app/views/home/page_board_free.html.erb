@@ -1,163 +1,139 @@
-	<!--<div class="myModal" style="display: hidden; position:absolute; left:p; right:0; top: 0; height: 100%; width: 100%; background-color: rgba( 0, 0, 0, 0.5 ); z-index: 1;">-->
-	<!--	<div align="center" style="margin-left:auto; margin-right:auto; margin-top:150px; width:800px; border-radius: 0;">-->
-	<!--		<div class="modal-content">-->
-	<!--	      <div class="modal-header">-->
-	<!--	        <h4 class="modal-title">아직 공사중입니당</h4>-->
-	<!--	      </div>-->
-	<!--	      <div class="modal-body">-->
-	<!--	        <img style="height:150px" src="/assets/under_construction.png">-->
-	<!--	      </div>-->
-	<!--	      <div class="modal-footer">-->
-	<!--	      	<a href="/">-->
-	<!--	        	<button type="button" class="btn btn-default" data-dismiss="modal" style="background: none; border-radius: 0;">-->
-	<!--	        	  돌아가기-->
-	<!--	        	</button>-->
-	<!--	        </a>-->
-	<!--	      </div>-->
-	<!--	    </div>-->
-	<!--    </div>-->
-	<!--</div>-->
+<input type="hidden" id="id_of_post" value="<%= @id_value %>">
 
- 	
-  <!--<script type="text/javascript">-->
- 	<!--	$(".myModal").css("display", "block")-->
-  <!-- </script>-->
- 	<div id="inner" style="position:relative; left: 50%; margin-left: -500px; padding-top: 20px; padding-bottom: 20px; width: 1000px;">
-	    <div id="hot100Title" style="margin-bottom: 20px; padding: 20px; height: 82px; width: 100%; border: 1px solid #dfdfdf; background-color: white;">
-	        <span style="float: left; color: black; font-size: 30px; font-weight: 700; ">자유로운 수다방&nbsp;</span>
-            <span style="float: left; margin-top: 14px; color: black; font-size: 16px;">재잘재잘 떠드는 공간</span>
-	    </div>  
-  <table class="table table-striped">
-    <thead style="border-bottom:0.5px solid black">
-      <tr>
-        <th class="col-xs-1">#</th>
-        <th class="col-xs-7">제목</th>
-        <th class="col-xs-1">글쓴이</th>
-        <th class="col-xs-2">쓴날</th>
-        <th class="col-xs-1">조회수</th>
-        <!--<th class="col-xs-1.5"></th>-->
-      </tr>
-    </thead>
-    <% @sudas.each do |s| %>
-    <tr>
-      <td><%= s.id %></td>
-      <td>
-        <a href="/home/page_board_free_detail/<%= s.id %>" class="viewcounter" value="<%= s.id %>" style="color:black">
-          
-          <%= s.suda_title.truncate(25) %>
-        
-        </a>
-        [<%= s.sudareplies.length%>]
-      
-      </td>
-      <td><%= s.suda_writer %></td>
-      <td><%= s.created_at.strftime('%m-%d %H:%M') %></td>
-      <td><!--조회수!-->
- 
-          <%= s.suda_viewcount %>
-  
-      </td>
-      <!--<td>-->
-        <!--!!!!!삭제하는거!!!!-->
-        <!-- Trigger the modal with a button -->
-      <!--  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">삭제</button>-->
-        
-        <!-- Modal -->
-      <!--  <div id="myModal" class="modal fade" role="dialog">-->
-      <!--    <div class="modal-dialog">-->
-        
-            <!-- Modal content-->
-            
-      <!--      <div class="modal-content">-->
-      <!--        <form action="/home/page_board_free_delete/<= s.id %>" method="post">-->
-      <!--            <div class="modal-header">-->
-      <!--              <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-      <!--              <h4 class="modal-title">비밀번호를 입력해주세요</h4>-->
-      <!--            </div>-->
-      <!--            <div class="modal-body">-->
-                    
-      <!--                <div class="form-group">-->
-      <!--                  <label for="exampleInputEmail1">비밀번호</label>-->
-      <!--                  <input type="password" class="form-control" id="exampleInputEmail1" name="checksudapw_view" placeholder="비밀번호">-->
-      <!--                </div>-->
-                      
-      <!--            </div>-->
-      <!--            <div class="modal-footer">-->
-      <!--              <button type="submit" class="btn btn-default">Submit</button>-->
-                    
-      <!--            </div>-->
-      <!--        </form>-->
-      <!--      </div>-->
-        
-      <!--    </div>-->
-      <!--  </div>-->
-        
-        <!--!!!!!!!!!수정하는거!!!!!!!!!!!!!-->
-        <!-- Trigger the modal with a button -->
-      <!--  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#reviseModal">수정</button>-->
-        
-        <!-- Modal -->
-      <!--  <div id="reviseModal" class="modal fade" role="dialog">-->
-      <!--    <div class="modal-dialog">-->
-        
-            <!-- Modal content-->
-            
-      <!--      <div class="modal-content">-->
-      <!--        <form action="/home/page_board_free_update/<= s.id %>" method="post">-->
-      <!--            <div class="modal-header">-->
-      <!--              <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-      <!--              <h4 class="modal-title">adfsfads</h4>-->
-      <!--            </div>-->
-      <!--            <div class="modal-body">-->
-                    
-      <!--                <div class="form-group">-->
-      <!--                  <label for="exampleInputEmail1">비밀번호</label>-->
-      <!--                  <input type="password" class="form-control" id="exampleInputEmail1" name="checksudapw_view" placeholder="비밀번호">-->
-      <!--                </div>-->
-                      
-      <!--            </div>-->
-      <!--            <div class="modal-footer">-->
-      <!--              <button type="submit" class="btn btn-default">Submit</button>-->
-                    
-      <!--            </div>-->
-      <!--        </form>-->
-      <!--      </div>-->
-        
-      <!--    </div>-->
-      <!--  </div>-->
-        
-        
-        
-      <!--</td>-->
-    </tr>
-    <% end %>
-  </table>
-
-
-    <button class="btn btn-default" type="button" onclick="location.href='/home/page_board_free_write'" style="background: none; background-color: none; border-radius: 0;">
-      글쓰기
-    </button>
-    
-  </div>
-  
-  
-<script>
-  $("document").ready(function(){
-    $("#menu4").css("color", "black");
-    
-    
-    // 클릭시 조회수 올라가는 ajax
-    
-    $(".viewcounter").on("click", function(){
+<div class="front">
+	<div class="inner">
+		<span style="font-size: 55px; color: white;">커뮤니티</span><br>
+		<span style="font-size: 45px; color: #ffdeed;">자유게시판입니다!</span>
+		<img id="main_img" src="/assets/community_free/front_comunity_free.png">
+	</div>
+</div>
+<div class="inner">
+	<div class="free_best">
+		<div class="title">
+			<span id="head">인기게시글_</span>
+		</div>
+		<div class="item_box">
+			<a id="item" style="background-image: url(/assets/home/sojoong2talk1.png);">
 				
-      var id = $(this).attr('value');
-      
-        $.ajax({
-        method: "POST",
-        url: "/home/page_board_free_viewcount",
-        data: { post_id: id }
-      });
-    });
-
-  })
+			</a>
+			<a id="item" style="background-image: url(/assets/home/sojoong2talk2.png);">
+				
+			</a>
+			<a id="item" style="background-image: url(/assets/home/sojoong2talk3.png);">
+				
+			</a>
+			<a id="item" style="background-image: url(/assets/home/sojoong2talk4.png);">
+				
+			</a>
+		</div>
+	</div>
+	<div class="free_list">
+		<div class="title">
+			<span id="head">자유게시판_</span>
+		</div>
+		<div class="list_container">
+			<% @sudas.each do |s| %>
+				<div class="free" <% if params[:num]=="#{s.id}" %> 
+					<%= "target=y" %>
+				<% end %>>
+					<div class="num"><%= s.id %></div>
+					<div class="info1">
+						<span id="date"><%= s.created_at.strftime("%Y-%d-%m %H:%M") %></span>
+					</div>
+					<div class="info2">
+						<span class="open" style="display: inline-block; width: 100%; cursor: pointer;">
+							<span id="title"><%= s.suda_title.truncate(25) %></span><br>
+							<span id="name"><%= s.suda_writer %></span>
+						</span>
+						<p><%= s.suda_content %></p>
+						<!--댓글 들어갈곳!-->
+						<!--댓글 보여주는 곳-->
+						<br>
+						<span style="font-weight:bold">댓글 <%= s.sudareplies.length %>개</span>
+						<div class="reple">
+							<% if s.sudareplies.present? %>
+								<% s.sudareplies.each do |sr| %>
+									<span id="s_name"><%= sr.sudareplyname %></span>
+									<span id="s_content"><%= sr.sudareplycontent %></span><br>
+								<% end %>
+							<% end %>
+						</div>
+						<br>
+						<!--댓글 쓰는곳-->
+						<div style="margin-top: 5px; width: 100%;">
+						    <input type="text" class="reply_name" name="reply_writer_name" id="exampleInputEmail1" placeholder="글쓴이" style="width: 130px;">
+						    <input type="text" class="reply_content" name="reply_content" id="exampleInputEmail1" placeholder="내용" style="width: 320px;">
+						    <button type="submit" value="<%= s.id %>" class="reply_submit" style="display: inline-block; width: 80px;padding: 0px 5px 0px 5px; background-color: white; border: 1px solid gray;">댓글달기</button>
+					    </div>
+						<!--댓글 마무리-->
+						<!--접는 버튼-->
+						<span class="f_close" style="display: inline-block; margin-top: 10px; padding: 5px 0px 5px 0px; width: 100%; color: white; font-weight: bold; background-color: #cccccc; cursor: pointer; text-align: center;">접기</span>
+					</div>
+					<div class="info3">
+						<span id="view"><%= s.suda_viewcount %></span>
+						<span id="comment"><%= s.sudareplies.count %></span>
+						<span id="like">21</span>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<button class="btn btn-default" type="button" onclick="location.href='/home/page_board_free_write'" style="background: none; background-color: none; border-radius: 0;">
+	      글쓰기
+	    </button>
+	</div>
+</div>
+<link rel="stylesheet" href="/assets/board_free.css">
+<script src="/assets/board_free.js"></script>
+<script>
+	$( document ).ready(function() {
+		var id_of_post = $("#id_of_post").val();
+		
+		
+		
+		// 댓글 달기.
+		$(".reply_content").keydown(function (key) {
+			
+	        if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
+	        	var tag = $(this).parents(".info2")[0]
+	    		tag = $(tag).find(".reple")
+	        	post_id = $(':focus').siblings(".reply_submit").attr("value");
+	            reply_name = $(':focus').siblings(".reply_name").val();
+	            reply_content = $(':focus').val();
+	            $.ajax({
+	                method: "POST",
+	                url: "/home/page_board_free_reply_save",
+	                data: {id_of_post: post_id , reply_writer_name: reply_name, reply_content: reply_content },
+	                success: function(){
+    	                $(tag).append("<span id='s_name'>" + reply_name + "</span>" +
+						"<span id='s_content'>" + reply_content + "</span><br>");
+	                	$(".reply_name").val('');
+	                	$(".reply_content").val('');
+	                }
+	            })
+	        }
+	    });
+	    $(".reply_submit").click(function(){
+	    	var tag = $(this).parents(".info2")[0]
+	    	tag = $(tag).find(".reple")
+	        post_id = $(this).attr("value");
+	        reply_name = $(this).siblings(".reply_name").val();
+	        reply_content = $(this).siblings(".reply_content").val();
+	        $.ajax({
+	            method: "POST",
+	            url: "/home/page_board_free_reply_save",
+	            data: {id_of_post: post_id , reply_writer_name: reply_name, reply_content: reply_content },
+	            success: function(){
+	                $(tag).append("<span id='s_name'>" + reply_name + "</span>" +
+									"<span id='s_content'>" + reply_content + "</span><br>");
+	                $(".reply_name").val('');
+	                $(".reply_content").val('');
+	            }
+	            
+	        })
+	    });
+		
+	});
+	
+	
+	
 </script>

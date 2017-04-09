@@ -1,0 +1,29 @@
+
+<div class="container">
+    <form id="write_form" action="/home/page_announce_write_save" method="post">
+        <div class="form-group">
+            <label>제목</label>
+            <input type="text" class="form-control" name="announce_title_view">
+        </div>
+        <label>내용</label>
+        <textarea id="summernote1" name="announce_content_view"></textarea>
+        
+        
+        
+        <button type="submit" class="btn btn-default" style="background: none; background-color: none; border-radius: 0;">재잘재잘</button>
+    </form>
+</div>
+        
+        
+<script>
+    
+    
+    $('#summernote1').summernote({
+            
+        height: 300,
+        lang: 'ko-KR', // default: 'en-US'
+        maximumImageFileSize: 1048576*7
+    });
+    
+    
+</script>

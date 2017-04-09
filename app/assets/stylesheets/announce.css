@@ -1,27 +1,172 @@
-.content .announces{
-    margin-bottom: 40px; 
-    padding: 20px; 
-    width: 100%; 
-    border: 1px solid #dfdfdf; 
+.front{
+    position: relative;
+    width: 100%;
+    height: 450px;
+    background-color: #f6b5d4;
+    z-index: -1;
 }
 
-.content .announces #title{
-    padding: 10px;
-    width: 100%; 
-    height: 50px;
+.front .inner{
+    position: relative;
+    left: 50%;
+    margin-left: -480px;
+    width: 960px;
+    height: 100%
+}
+
+.front .inner span{
+    position: relative;
+    top: 150px;
+}
+
+.front .inner #main_img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 500px;
+}
+
+.nav{
+    position: fixed;
+    top: 0;
+    padding: 20px 0 20px 0;
+    width: 100%;
+    height: 65px;
+    background-color: #f6b5d4;
+    box-shadow: 0px 2px 2px #ef7db3;
+    z-index: 2;
+}
+
+.content .inner .announce_list{
+    position: relative;
+    width: 100%;
+}
+
+.content .inner .announce_list .title{
+    position: relative;
+    width: 100%;
+    height: 35px;
+}
+
+.content .inner .announce_list .title #head{
+    display: inline-block;
+    float: left;
+    color: #34404b;
     font-size: 20px;
-    font-family: Hanna !important;
+    font-weight: bold;
 }
 
-.content .announces #title #date{
-    float: right;
+.content .inner .announce_list .list_container{
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.content .inner .announce_list .list_container .announce{
+    position: relative;
+    padding: 15px;
+    width: 100%;
+    height: 55px;
+    border-bottom: 1px solid #dfdfdf;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.content .inner .announce_list .list_container .announce .num{
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 40px;
+    height: 100%;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.content .inner .announce_list .list_container .announce .info1{
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    width: 190px;
+    height: 100%;
     color: gray;
     font-size: 16px;
-    font-family: sans-serif;
 }
 
-img#smallimg{
-    margin-right: 10px;
-    width: auto;
-    height: 30px;
+.content .inner .announce_list .list_container .announce .info2{
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    width: 580px;
+    height: 100%;
+    font-size: 16px;
+}
+
+.content .inner .announce_list .list_container .announce .info2 p{
+    margin-top: 20px;
+}
+
+
+.content .inner .announce_list .list_container .announce .info3{
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    width: 190px;
+    height: 100%;
+}
+
+.content .inner .announce_list .list_container .announce .info3{
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    width: 120px;
+    height: 100%;
+}
+
+.content .inner .announce_list .list_container .announce .info3 #view{
+    position: relative;
+    display: inline-block;
+    float: left;
+    padding-top: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+    background-image: url(/assets/view_ico.png);
+    background-size: 30px auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.content .inner .announce_list .list_container .announce .info3 #comment{
+    position: relative;
+    display: inline-block;
+    float: left;
+    padding-top: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+    background-image: url(/assets/comment_ico.png);
+    background-size: 24px auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.content .inner .announce_list .list_container .announce .info3 #like{
+    position: relative;
+    display: inline-block;
+    float: left;
+    padding-top: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+    background-image: url(/assets/like_ico.png);
+    background-size: 24px auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    text-align: center;
 }

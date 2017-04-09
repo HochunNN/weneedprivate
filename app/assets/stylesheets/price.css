@@ -1,140 +1,247 @@
-.content .search{
+.front{
+    position: relative;
+    width: 100%;
+    height: 450px;
+    background-color: #91a8d0;
+    z-index: -1;
+}
+
+.front .inner{
+    position: relative;
+    left: 50%;
+    margin-left: -480px;
+    width: 960px;
+    height: 100%
+}
+
+.front .inner span{
+    position: relative;
+    top: 150px;
+}
+
+.front .inner #main_img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 500px;
+}
+
+.nav{
+    position: fixed;
+    top: 0;
+    padding: 20px 0 20px 0;
+    width: 100%;
+    height: 65px;
+    background-color: #91a8d0;
+    box-shadow: 0px 2px 2px #8197c0;
+    z-index: 2;
+}
+
+.content .inner .top_menu{
+    position: relative;
+    width: 100%;
+}
+
+.content .inner .top_menu .title{
+    position: relative;
+    width: 100%;
+    height: 35px;
+}
+
+.content .inner .top_menu .title #head{
+    display: inline-block;
+    float: left;
+    color: #34404b;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content .inner .top_menu .search{
     margin-top: 40px; 
     width: 100%; 
+    border-top: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    background-color: white;
 }
 
-.content .search .category{
+.content .inner .top_menu .search .option_category{
     position: relative;
-    height: 40px;
+    min-height: 50px;
 }
 
-.content .search .category #left{
+.content .inner .top_menu .search .option_category #left{
     position: absolute;
     padding: 10px;
-    width: 200px;
+    width: 100px;
     height: 100%;
-    color: white;
     font-size: 18px;
-    font-family: Hanna !important;
-    background-color: #df2d39;
+    font-weight: bold;
 }
 
-.content .search .category #right{
+.content .inner .top_menu .search .option_category #right{
     position: relative;
-    margin-left: 200px;
-    padding: 5px;
-    width: 800px;
+    margin-left: 100px;
+    padding: 10px;
+    width: 860px;
     height: 100%;
-    border: 1px solid #dfdfdf;
 }
 
-.content .search .category ul{ 
+.content .inner .top_menu .search .option_category ul{ 
     display: inline-block;
     margin-bottom: 0px;
     list-style: none;
 }
 
-.content .search ul li{ 
+.content .inner .top_menu .search .option_category li{ 
     display: inline-block;
     padding: 5px 20px 5px 20px;
+    font-size: 15px;
     text-align: center;
 }
 
-.content .search ul li:hover{ 
+.content .inner .top_menu .search .option_category li:hover{ 
     font-weight: bold;
     cursor: pointer;
 }
 
-.content .search .option{
-    position: relative;
-    margin-top: -1px;
-    height: 40px;
-}
-
-.content .search .option #left{
-    position: absolute;
-    padding: 10px;
-    width: 200px;
-    height: 100%;
-    color: white;
-    font-size: 18px;
-    font-family: Hanna !important;
-    background-color: #df2d39;
-}
-
-.content .search .option #right{
-    position: relative;
-    margin-left: 200px;
-    padding: 5px;
-    width: 800px;
-    height: 100%;
-    border: 1px solid #dfdfdf;
-}
-
-.content .search .name{
+.content .inner .top_menu .search .option_price{
     position: relative;
     margin-top: -1px;
     height: 50px;
 }
 
-.content .search .name #left{
+.content .inner .top_menu .search .option_price #left{
     position: absolute;
     padding: 10px;
-    width: 200px;
+    width: 100px;
     height: 100%;
-    color: white;
     font-size: 18px;
-    font-family: Hanna !important;
-    background-color: #df2d39;
+    font-weight: bold;
 }
 
-.content .search .name #right{
+.content .inner .top_menu .search .option_price #right{
     position: relative;
-    margin-left: 200px;
-    padding: 5px;
-    width: 800px;
+    margin-left: 100px;
+    padding: 15px;
+    width: 860px;
     height: 100%;
-    border: 1px solid #dfdfdf;
+    font-size: 15px;
 }
 
-.content .search .name #product_name2{
+.content .inner .top_menu .search .option_price #right span{
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.content .inner .top_menu .search .option_price #right input{
+    width: 150px;
+    height: 25px;
+    text-align: right;
+}
+
+.content .inner .top_menu .search .option_etc{
     position: relative;
+    margin-top: -1px;
+    height: 50px;
+}
+
+.content .inner .top_menu .search .option_etc #left{
+    position: absolute;
+    padding: 10px;
+    width: 100px;
+    height: 100%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.content .inner .top_menu .search .option_etc #right{
+    position: relative;
+    margin-left: 100px;
+    padding: 15px;
+    width: 860px;
+    height: 100%;
+    color: gray;
+    font-size: 15px;
+}
+
+.content .inner .top_menu .search .option_name{
+    position: relative;
+    margin-top: -1px;
+    height: auto;
+    min-height: 50px;
+}
+
+.content .inner .top_menu .search .option_name .options{
+    display: inline-block;
+    position: relative;
+    width: 460px;
+    height: auto;
+}
+
+.content .inner .top_menu .search .option_name .options span{
+    display: inline-block;
+}
+
+.content .inner .top_menu .search .option_name #left{
+    position: absolute;
+    padding: 10px;
+    width: 100px;
+    height: 100%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.content .inner .top_menu .search .option_name #right{
+    position: relative;
+    margin-left: 100px;
+    padding: 15px;
+    width: 860px;
+    height: 100%;
+}
+
+.content .inner .top_menu .search .option_name #right span{
+    margin-right: 20px;
+    color: gray;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.content .inner .top_menu .search .option_name #right input{
     float: right;
-    top: 1px;
-    margin: 5px 15px 0px 0px;
-    padding-left: 5px;
-    width: 740px;
-    height: 26px;
+    width: 320px;
+    height: 25px;
     border: 0px;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid black;
+    text-align: right;
 }
 
-.content .search .name #search2{
-    position: relative;
+.content .inner .top_menu .search .option_name #right a{
     display: inline-block;
     float: right;
-    top: 8px;
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
+    margin-left: 10px;
+    width: 23px;
+    height: 23px;
+    border: 0px;
+    background-color: rgba( 255, 255, 255, 0 );
+    background-image: url("/assets/search_ico_black.png");
     background-size: cover;
+    cursor: pointer;
 }
 
-
-.content .result{
+.content .inner .result{
     margin-top: 40px;
     width: 100%;
     border-top: 1px solid #dfdfdf;
 }
 
-.content .result .item{
+.content .inner .result .item{
     padding: 20px 0px 20px 0px;
     width: 100%;
     height: 240px;
     border-bottom: 1px solid #dfdfdf;
 }
 
-.content .result .item #img{
+.content .inner .result .item #img{
     float: left;
     display: inline-block;
     width: 200px;
@@ -142,26 +249,26 @@
     background-size: cover;
 }
 
-.content .result .item #info{
+.content .inner .result .item #info{
     position: relative;
     float: left;
     display: inline-block;
     padding-left: 10px;
-    width: 500px;
+    width: 470px;
     height: 100%;
 }
 
-.content .result .item #info #categories{
+.content .inner .result .item #info #categories{
     color: gray;
 }
 
-.content .result .item #info #name{
+.content .inner .result .item #info #name{
     font-family: '돋움',Dotum,Helvetica,'Apple SD Gothic Neo',Sans-serif;
     font-size: 16px;
     font-weight: bold;
 }
 
-.content .result .item #info #price{
+.content .inner .result .item #info #price{
     display: inline-block;
     margin: 10px;
     color: #df2d39;
@@ -169,7 +276,7 @@
     font-weight: bold;
 }
 
-.content .result .item #info #subinfo{
+.content .inner .result .item #info #subinfo{
     position: absolute;
     display: block;
     bottom: 0px;
@@ -178,13 +285,13 @@
     color: gray;
 }
 
-.content .result .item #subinfo span{
+.content .inner .result .item #subinfo span{
     color: #f36774;
     font-weight: bold;
 }
 
 
-.content .result .item #siteinfo{
+.content .inner .result .item #siteinfo{
     float: left;
     display: inline-block;
     padding: 10px;
@@ -194,12 +301,12 @@
     overflow: hidden;
 }
 
-.content .result .item #siteinfo ul{
+.content .inner .result .item #siteinfo ul{
     list-style: none;
     width: 100%;
 }
 
-.content .result .item #siteinfo ul li a{
+.content .inner .result .item #siteinfo ul li a{
     display: inline-block;
     width: 200px;
     color: gray;
@@ -208,19 +315,16 @@
     text-overflow: ellipsis;
 }
 
-.content .result .item #siteinfo ul li:nth-of-type(1) a{
+.content .inner .result .item #siteinfo ul li:nth-of-type(1) a{
     color: black;
     font-weight: bold;
 }
 
-.content .result .item #siteinfo ul li span{
+.content .inner .result .item #siteinfo ul li span{
     float: right;
 }
 
-.content .result .item #siteinfo ul li:nth-of-type(1) span{
+.content .inner .result .item #siteinfo ul li:nth-of-type(1) span{
     color: #df2d39;
     font-weight: bold;
 }
-
-
-
