@@ -14,7 +14,7 @@ class HomeController < ApplicationController
     @linetalks = Linetalk.all.order("id desc")
     @sudas = Suda.order("created_at desc").limit(4) #최근 4개
     @reviews = Review.order("created_at desc").limit(4) #최근 4개
-    
+    @announces = Announce.order("created_at desc").limit(3)
   end
   
   def page_main_linetalk_write

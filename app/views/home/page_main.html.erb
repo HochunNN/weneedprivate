@@ -13,17 +13,10 @@
 		<a href="/home/page_announce" id="link">더보기▶</a>
 	</div>
 	<div class="item_box">
-		<a href="/home/page_announce?num=<%= Announce.last(3)[2].id %>" id="item" style="background-image: url(/assets/home/announce1.png);">
-			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%;"><%= Announce.last(3)[2].announce_title %></span><br>
-			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%; color: #a1f3da; font-size: 25px;"><%= Announce.last(3)[2].announce_content %></span>
-		</a>
-		<a href="/home/page_announce?num=<%= Announce.last(3)[1].id %>" id="item" style="background-image: url(/assets/home/announce2.png);">
-			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%;"><%= Announce.last(3)[1].announce_title %></span><br>
-			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%; color: #b7cef7; font-size: 25px;"><%= Announce.last(3)[1].announce_content %></span>
-		</a>
-		<a href="/home/page_announce?num=<%= Announce.last(3)[0].id %>" id="item" style="background-image: url(/assets/home/announce3.png);">
-			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%;"><%= Announce.last(3)[0].announce_title %></span><br>
-			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%; color: #ffe1f1; font-size: 25px;"><%= Announce.last(3)[0].announce_content %></span>
+		<% @announces.each do |a| %>
+		<a href="/home/page_announce?num=<%= a.id %>" id="item" style="background-image: url(/assets/home/announce1.png);">
+			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%;"><%= a.announce_title %></span><br>
+			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%; color: #a1f3da; font-size: 25px;"><%= a.announce_content %></span>
 		</a>
 	</div>
 </div>
