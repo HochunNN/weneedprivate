@@ -14,10 +14,11 @@
 	</div>
 	<div class="item_box">
 		<% @announces.each do |a| %>
-		<a href="/home/page_announce?num=<%= a.id %>" id="item" style="background-image: url(/assets/home/announce1.png);">
-			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%;"><%= a.announce_title %></span><br>
-			<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%; color: #a1f3da; font-size: 25px;"><%= a.announce_content %></span>
-		</a>
+			<a href="/home/page_announce?num=<%= a.id %>" id="item" style="background-image: url(/assets/home/announce1.png);">
+				<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%;"><%= a.announce_title %></span><br>
+				<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%; color: #a1f3da; font-size: 25px;"><%= a.announce_content %></span>
+			</a>
+		<% end %>
 	</div>
 </div>
 <div class="sojoong2talk">
