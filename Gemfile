@@ -6,7 +6,7 @@ gem 'will_paginate'
 # 이미지 업로드
 gem 'fog'
 gem 'carrierwave', '~> 1.0'
-
+gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
