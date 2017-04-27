@@ -2,7 +2,7 @@
 	<div class="inner">
 		<span style="font-size: 55px; color: white;"> 공지사항</span><br>
 		<span style="font-size: 45px; color: #ffdeed;"> 읽어주세요!</span>
-		<img id="main_img" src="/assets/announce/front_announce.png">
+		<img id="main_img" src="<%= image_path("front_announce.png") %>">
 	</div>
 </div>
 <div class="inner">
@@ -32,5 +32,5 @@
 		</div>
 	</div>
 </div>
-<link rel="stylesheet" href="/assets/announce.css">
-<script src="/assets/announce.js"></script>
+<link rel="stylesheet" href="<%= asset_path("announce.css") %>">
+<script src="<%= asset_path("announce.js") %>"></script>

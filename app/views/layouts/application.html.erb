@@ -3,8 +3,8 @@
     <head>
         <title>소중이닷컴 Baby</title>
         <%= csrf_meta_tags %>
-        <link rel="stylesheet" href="/assets/myStyle.css">
-    
+        <link rel="stylesheet" href="<%= asset_path("myStyle.css") %>">
+
         <!--Bootstrap-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -59,7 +59,7 @@
         		</div>
         		<div class="info">
         			<a href="/">개인정보 취급방침</a> | <a href="/">이용약관</a> | <a href="/">제휴문의</a><br><br>
-        			<img src="/assets/nav_logo_black.png"><br>
+        			<img src="<%= image_path ("nav_logo_black.png") %>"><br>
         			www.sojoong2.com<br><br>
         			사업자등록번호:<br>
         			전화번호:<br>
@@ -68,4 +68,4 @@
         </div>
     </body>
 </html>
-<script src="/assets/myScript.js"></script>
+<script src="<%= asset_path("myScript.js") %>"></script>

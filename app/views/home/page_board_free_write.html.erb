@@ -2,7 +2,7 @@
 	<div class="inner">
 		<span style="font-size: 55px; color: white;">커뮤니티</span><br>
 		<span style="font-size: 45px; color: #ffdeed;">자유게시판입니다!</span>
-		<img id="main_img" src="/assets/community_free/front_comunity_free.png">
+		<img id="main_img" src="<%= image_path("front_comunity_free.png") %>">
 	</div>
 </div>
 <div id="inner" style="position:relative; left: 50%; margin-left: -500px; padding-top: 90px; padding-bottom: 20px; width: 1000px;">
@@ -74,5 +74,5 @@
             });
         })
     </script>
-<link rel="stylesheet" href="/assets/board_free.css">
-<script src="/assets/board_free.js"></script>
+<link rel="stylesheet" href="<%= asset_path("board_free.css") %>">
+<script src="<%= asset_path("board_free.js") %>"></script>

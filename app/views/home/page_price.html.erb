@@ -2,7 +2,7 @@
 	<div class="inner">
 		<span style="font-size: 55px; color: white;">가격비교</span><br>
 		<span style="font-size: 45px; color: #b7cdf7;">비교중이에요!</span>
-		<img id="main_img" src="/assets/price/front_price.png">
+		<img id="main_img" src="<%= image_path("front_price.png") %>">
 	</div>
 </div>
 <div class="inner">
@@ -98,5 +98,5 @@
 </div>
 
 
-<link rel="stylesheet" href="/assets/price.css">
-<script src="/assets/price.js"></script>
+<link rel="stylesheet" href="<%= asset_path("price.css") %>">
+<script src="<%= asset_path("price.js") %>"></script>

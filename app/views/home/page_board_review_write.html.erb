@@ -2,7 +2,7 @@
 	<div class="inner">
 		<span style="font-size: 55px; color: white;">커뮤니티</span><br>
 		<span style="font-size: 45px; color: #ffdeed;">리뷰게시판입니다!</span>
-		<img id="main_img" src="/assets/community_review/front_comunity_review.png">
+		<img id="main_img" src="<%= image_path("front_comunity_review.png") %>">
 	</div>
 </div>
 <div id="inner" style="position:relative; left: 50%; margin-left: -500px; padding-top: 90px; padding-bottom: 20px; width: 1000px;">
@@ -115,5 +115,5 @@
  
 
 </script>
-<link rel="stylesheet" href="/assets/board_review.css">
-<script src="/assets/board_review.js"></script>
+<link rel="stylesheet" href="<%= asset_path("board_review.css") %>">
+<script src="<%= asset_path("board_review.js") %>"></script>

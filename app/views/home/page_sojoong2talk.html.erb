@@ -2,7 +2,7 @@
 	<div class="inner">
 		<span style="font-size: 55px; color: white;"> 소중이톡</span><br>
 		<span style="font-size: 45px; color: #a1f3da;"> 소중이가 주는 꿀팁!</span>
-		<img id="main_img" src="/assets/announce/front_announce.png">
+		<img id="main_img" src="<%= image_path("front_announce.png") %>">
 	</div>
 </div>
 <div class="inner">
@@ -15,28 +15,28 @@
 			<% if params[:num]=="1" %> 
 				<%= "target=y" %>
 			<% end %>>
-				<img src="/assets/sojoong2talk/sojoong2talk1.png">
+				<img src="<%= image_path("sojoong2talk1.png") %>">
 			</div>
 			<div class="sojoong2talk" id="2" high="4510" style="left: 243px;"
 			<% if params[:num]=="2" %> 
 				<%= "target=y" %>
 			<% end %>>
-				<img src="/assets/sojoong2talk/sojoong2talk2.png">
+				<img src="<%= image_path("sojoong2talk2.png") %>">
 			</div>
 			<div class="sojoong2talk" id="3" high="5010" style="left: 486px;"
 			<% if params[:num]=="3" %> 
 				<%= "target=y" %>
 			<% end %>>
-				<img src="/assets/sojoong2talk/sojoong2talk3.png">
+				<img src="<%= image_path("sojoong2talk3.png") %>">
 			</div>
 			<div class="sojoong2talk" id="4" style="width: 231px; left: 729px;">
-				<img src="/assets/sojoong2talk/sojoong2talk4.png">
+				<img src="<%= image_path("sojoong2talk4.png") %>">
 			</div>
 		</div>
 	</div>
 </div>
-<link rel="stylesheet" href="/assets/sojoong2talk.css">
-<script src="/assets/sojoong2talk.js"></script>
+<link rel="stylesheet" href="<%= asset_path("sojoong2talk.css") %>">
+<script src="<%= asset_path("sojoong2talk.js") %>"></script>
 <!--<div class="inner">
 	<div class="sojoong2talk_list">
 		<div class="title">
