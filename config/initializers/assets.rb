@@ -8,7 +8,7 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( announce.js board_free.js )
+Rails.application.config.assets.precompile += %w( announce.js board_free.js board_review.js main.js myScript.js price.js sojoong2talk.js announce.css board_free.css board_review.css main.css myStyle.css price.css sojoong2talk.css)
 # Rails.application.config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/
 # Rails.application.config.assets.precompile += %w[*.js, *.css, *.png]
 
