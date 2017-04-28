@@ -200,7 +200,7 @@ a:hover{
     margin-top: 10px;
     width: 149px;
     height: 84px;
-    background-image: url("/assets/footer_logo.png");
+    background-image: image-url("footer_logo.png");
     background-size: cover;
 }
 

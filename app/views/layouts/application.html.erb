@@ -3,8 +3,7 @@
     <head>
         <title>소중이닷컴 Baby</title>
         <%= csrf_meta_tags %>
-        <link rel="stylesheet" href="<%= asset_path("myStyle.css") %>">
-
+        
         <!--Bootstrap-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -27,6 +26,11 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/lang/summernote-ko-KR.js"></script>
+        
+        
+        <%= stylesheet_link_tag "myStyle" %>
+        <%= javascript_include_tag "myScript" %>
+        
         
     </head>
     <body>
@@ -68,4 +72,4 @@
         </div>
     </body>
 </html>
-<script src="<%= asset_path("myScript.js") %>"></script>
+
