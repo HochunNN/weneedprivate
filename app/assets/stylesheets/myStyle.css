@@ -88,7 +88,7 @@ a:hover{
     height: 23px;
     border: 0px;
     background-color: rgba( 255, 255, 255, 0 );
-    background-image: url("/assets/search_ico_white.png");
+    /*background-image: url("/assets/search_ico_white.png");*/
     background-size: cover;
 }
 
@@ -200,7 +200,7 @@ a:hover{
     margin-top: 10px;
     width: 149px;
     height: 84px;
-    background-image: image-url("footer_logo.png");
+    /*background-image: asset-url("footer_logo.png", image);*/
     background-size: cover;
 }
 
