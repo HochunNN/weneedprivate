@@ -32,7 +32,7 @@ a:hover{
     float: left;
     width: 120px;
     height: 25px;
-    background-image: image-url("nav_logo_white");
+    background-image: url(image_path("nav_logo_white.png"));
     background-size: auto 100%;
     background-repeat: no-repeat;
 }
