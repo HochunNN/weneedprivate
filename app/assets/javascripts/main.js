@@ -8,7 +8,7 @@ $(document).ready(function(){
            $(".nav .inner .search #text").css("border", "2px solid #34404b");
            $(".nav .inner .search #text").addClass("temp");
            $(".nav .inner .page_menu li a").css("color", "#34404b");
-           $(".nav .inner #logo").css("background-image", 'url(<%= image_path("nav_logo_black.png") %>)');
+           $(".nav .inner #logo").css("background-image", 'url(image_path("nav_logo_black.png"))');
            $(".nav .inner .search #submit").css("background-image", 'url("/assets/search_ico_black.png")');
            $(".nav .inner #communityDiv a").css("color", "#34404b");
        }else{
@@ -18,7 +18,7 @@ $(document).ready(function(){
            $(".nav .inner .search #text").removeClass("temp");
            $(".nav .inner .page_menu li a").css("color", "white");
            $(".nav .inner #logo").css("background-image", 'url("/assets/nav_logo_white.png")');
-           $(".nav .inner .search #submit").css("background-image", 'url(<%= image_path("nav_logo_white.png") %>)');
+           $(".nav .inner .search #submit").css("background-image", 'url(image_path("nav_logo_white.png"))');
            $(".nav .inner #communityDiv a").css("color", "white");
        }
    });
