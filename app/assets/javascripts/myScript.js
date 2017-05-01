@@ -23,8 +23,16 @@ $(document).ready(function(){
        var frontHeight = parseInt($(".front").css("height"))-65;
        if(topScroll > frontHeight){
            $(".nav .inner .search #text").addClass("temp");
+           $(".nav .inner #logo_w").css("display", 'none');
+           $(".nav .inner #logo_b").css("display", 'inline-block');
+           $(".nav .inner #submit_w").css("display", 'none');
+           $(".nav .inner #submit_b").css("display", 'inline-block');
        }else{
            $(".nav .inner .search #text").removeClass("temp");
+           $(".nav .inner #logo_w").css("display", 'inline-block');
+           $(".nav .inner #logo_b").css("display", 'none');
+           $(".nav .inner #submit_w").css("display", 'inline-block');
+           $(".nav .inner #submit_b").css("display", 'none');
        }
    });
 });

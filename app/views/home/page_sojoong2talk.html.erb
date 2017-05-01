@@ -10,48 +10,21 @@
 		<div class="title">
 			<span id="head">소중이톡_</span>
 		</div>
-		<div class="list_container">
-			<div class="sojoong2talk" id="1" high="4280"
-			<% if params[:num]=="1" %> 
-				<%= "target=y" %>
-			<% end %>>
-				<img src="<%= image_path("sojoong2talk1.png") %>">
-			</div>
-			<div class="sojoong2talk" id="2" high="4510" style="left: 243px;"
-			<% if params[:num]=="2" %> 
-				<%= "target=y" %>
-			<% end %>>
-				<img src="<%= image_path("sojoong2talk2.png") %>">
-			</div>
-			<div class="sojoong2talk" id="3" high="5010" style="left: 486px;"
-			<% if params[:num]=="3" %> 
-				<%= "target=y" %>
-			<% end %>>
-				<img src="<%= image_path("sojoong2talk3.png") %>">
-			</div>
-			<div class="sojoong2talk" id="4" style="width: 231px; left: 729px;">
-				<img src="<%= image_path("sojoong2talk4.png") %>">
-			</div>
+		<div class="list_container" style="min-height: <%= 230+((@temp.length-1)/4).to_i*250 %>px">
+			<% i = 0 %>
+			<% @temp.each do |t|%>
+				<% left = (i%4)*250 %>
+				<% top = (i/4).to_i*250 %>
+				<div class="sojoong2talk" id="<%= t.id %>" <% if params[:num]==t.id %><%= "target=y" %><% end %> style="top:<%=top%>px; left:<%=left%>px">
+					<div class="st_thumbnail">
+						<img id="thumbnail" src="<%= t.talk_thumbnail %>">
+						<img id="content" src="<%= t.talk_content %>" style="display: none;">
+					</div>
+				</div>
+				<% i = i + 1 %>
+			<% end %>
 		</div>
 	</div>
 </div>
 <link rel="stylesheet" href="<%= asset_path("sojoong2talk.css") %>">
 <script src="<%= asset_path("sojoong2talk.js") %>"></script>
-<!--<div class="inner">
-	<div class="sojoong2talk_list">
-		<div class="title">
-			<span id="head">소중이톡_</span>
-		</div>
-		<div class="list_container">
-			<% @temp.each do |t|%>
-				<div class="sojoong2talk" id="<%= t.id %>">
-					<div class="st_thumbnail">
-						<%= raw t.talk_thumbnail %>	
-					</div>
-				</div>
-			<% end %>
-		</div>
-	</div>
-</div>
-
--->

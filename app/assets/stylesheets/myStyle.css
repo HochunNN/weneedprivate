@@ -27,12 +27,20 @@ a:hover{
     height: 100%;
 }
 
-.nav .inner #logo{
+.nav .inner #logo_w{
     display: inline-block;
     float: left;
     width: 120px;
     height: 25px;
-    /*background-image: url(image_path("nav_logo_white.png"));*/
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+}
+
+.nav .inner #logo_b{
+    display: inline-block;
+    float: left;
+    width: 120px;
+    height: 25px;
     background-size: auto 100%;
     background-repeat: no-repeat;
 }
@@ -80,7 +88,19 @@ a:hover{
 }
 
 
-.nav .inner .search #submit{
+.nav .inner .search #submit_w{
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    width: 23px;
+    height: 23px;
+    border: 0px;
+    background-color: rgba( 255, 255, 255, 0 );
+    /*background-image: image-url("search_ico_white.png");*/
+    background-size: cover;
+}
+
+.nav .inner .search #submit_b{
     display: inline-block;
     float: left;
     margin-left: 10px;
