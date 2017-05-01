@@ -197,7 +197,7 @@
     width: 40px;
     height: 40px;
     font-size: 12px;
-    /*background-image: image-url("view_ico.png");*/
+    background-image: image-url("view_ico.png");
     background-size: 30px auto;
     background-position: center top;
     background-repeat: no-repeat;
@@ -212,7 +212,7 @@
     width: 40px;
     height: 40px;
     font-size: 12px;
-    /*background-image: image-url("comment_ico.png");*/
+    background-image: image-url("comment_ico.png");
     background-size: 24px auto;
     background-position: center top;
     background-repeat: no-repeat;
@@ -227,7 +227,7 @@
     width: 40px;
     height: 40px;
     font-size: 12px;
-    /*background-image: image-url("like_ico.png");*/
+    background-image: image-url("like_ico.png");
     background-size: 24px auto;
     background-position: center top;
     background-repeat: no-repeat;
