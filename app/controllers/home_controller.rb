@@ -209,7 +209,7 @@ class HomeController < ApplicationController
     suda.suda_passwd = params[:suda_passwd_view]
     suda.save
     
-    redirect_to "/home/page_board_free_detail/#{suda.id}"
+    redirect_to "/home/page_board_free?num=#{suda.id}"
     
   end
   
@@ -342,7 +342,7 @@ class HomeController < ApplicationController
     
     review.save
     
-    redirect_to "/home/page_board_review_detail/#{review.id}"
+    redirect_to "/home/page_board_review?num=#{review.id}"
   end
   
   def page_board_review_delete

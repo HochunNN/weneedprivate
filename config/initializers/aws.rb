@@ -7,6 +7,6 @@ CarrierWave.configure do |config|
         endpoint: 'http://s3.ap-northeast-2.amazonaws.com'
     }
     config.fog_directory = '/sojoong2talk'
-    config.fog_public = false
+    config.fog_public = true
     config.fog_attributes = {} # optional, defaults to {}
 end
