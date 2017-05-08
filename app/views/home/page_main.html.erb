@@ -1,9 +1,9 @@
 <div class="front">
-<div class="inner">
-	<span style="font-size: 55px; color: white;">국내최초</span><br>
-	<span style="font-size: 45px; color: #ffdeed;">성인용품 가격비교 사이트!!<br>www.sojoong2.com</span>
-	<img id="main_img" src="<%= image_path("front_home.png") %>">
-</div>
+	<div class="inner">
+		<span style="font-size: 55px; color: white;">국내최초</span><br>
+		<span style="font-size: 45px; color: #ffdeed;">성인용품 가격비교 사이트!!<br>www.sojoong2.com</span>
+		<img id="main_img" src="<%= image_path("front_home.png") %>">
+	</div>
 </div>
 <div class="inner">
 <div class="announce">
@@ -27,18 +27,9 @@
 		<a href="/home/page_sojoong2talk" id="link">더보기▶</a>
 	</div>
 	<div class="item_box">
-		<a href="/home/page_sojoong2talk?num=1" id="item" style="background-image: url(<%= image_path("sojoong2talk1.png") %>);">
-			
-		</a>
-		<a href="/home/page_sojoong2talk?num=2" id="item" style="background-image: url(<%= image_path("sojoong2talk2.png") %>);">
-			
-		</a>
-		<a href="/home/page_sojoong2talk?num=3" id="item" style="background-image: url(<%= image_path("sojoong2talk3.png") %>);">
-			
-		</a>
-		<a id="item" style="background-image: url(<%= image_path("sojoong2talk4.png") %>);">
-			
-		</a>
+		<% @sojoong2talks.each do |s| %>
+			<a href="/home/page_sojoong2talk?num=<%= s.id %>" id="item" style="background-image: url(<%= s.talk_thumbnail %>);"></a>
+		<% end %>
 	</div>
 </div>
 <div class="poppular_product">
@@ -49,29 +40,28 @@
 	<div class="container_temp">
 		<ul class="category">
 			<li>
-				<span><a href="/">남성용품_</a></span>
-				<a href="/">인형</a> | <a href="/">컵홀/핸드잡</a> | <a href="/">보조용품</a>
+				<span><a href="/home/page_price?categories=남성&search_product_name=&lowest_price=0&highest_price=9999999">남성용품_</a></span>
+				<a href="/home/page_price?categories=인형(중/대형)&search_product_name=&lowest_price=0&highest_price=9999999">인형</a> | <a href="/home/page_price?categories=컵홀/핸드잡&search_product_name=&lowest_price=0&highest_price=9999999">컵홀/핸드잡</a> | <a href="/home/page_price?categories=남성 보조용품&search_product_name=&lowest_price=0&highest_price=9999999">보조용품</a>
 			</li>
 			<li>
-				<span><a href="/">여성용품_</a></span>
-				<a href="/">딜도</a> | <a href="/">바이브/페어리</a> | <a href="/">보조용품</a>
+				<span><a href="/home/page_price?categories=여성&search_product_name=&lowest_price=0&highest_price=9999999">여성용품_</a></span>
+				<a href="/home/page_price?categories=딜도&search_product_name=&lowest_price=0&highest_price=9999999">딜도</a> | <a href="/home/page_price?categories=바이브레이터/페어리&search_product_name=&lowest_price=0&highest_price=9999999">바이브/페어리</a> | <a href="/home/page_price?categories=여성 보조용품&search_product_name=&lowest_price=0&highest_price=9999999">보조용품</a>
 			</li>
 			<li>
-				<span><a href="/">애널_</a></span>
-				<a href="/">남성</a> | <a href="/">여성</a>
+				<span><a href="/home/page_price?categories=애널&search_product_name=&lowest_price=0&highest_price=9999999">애널_</a></span>
 			</li>
 			<li>
-				<span><a href="/">콘돔_</a></span>
-				<a href="/">초박형</a> | <a href="/">기능형</a> | <a href="/">일반형</a> | <a href="/">기타</a>
+				<span><a href="/home/page_price?categories=콘돔&search_product_name=&lowest_price=0&highest_price=9999999">콘돔_</a></span>
+				<a href="/home/page_price?categories=일반형&search_product_name=&lowest_price=0&highest_price=9999999">일반형</a> | <a href="/home/page_price?categories=초박형&search_product_name=&lowest_price=0&highest_price=9999999">초박형</a> | <a href="/home/page_price?categories=기능형&search_product_name=&lowest_price=0&highest_price=9999999">기능형</a> | <a href="/home/page_price?categories=기타&search_product_name=&lowest_price=0&highest_price=9999999">기타</a>
 			</li>
 			<li>
-				<span><a href="/">젤/향수/스파_</a></span>
+				<span><a href="/home/page_price?categories=젤/향수/스파&search_product_name=&lowest_price=0&highest_price=9999999">젤/향수/스파_</a></span>
 			</li>
 			<li>
-				<span><a href="/">SM용품_</a></span>
+				<span><a href="/home/page_price?categories=SM용품&search_product_name=&lowest_price=0&highest_price=9999999">SM용품_</a></span>
 			</li>
 			<li>
-				<span><a href="/">란제리/속옷_</a></span>
+				<span><a href="/home/page_price?categories=란제리&search_product_name=&lowest_price=0&highest_price=9999999">란제리/속옷</a></span>
 			</li>
 		</ul>
 		<div class="item_box">

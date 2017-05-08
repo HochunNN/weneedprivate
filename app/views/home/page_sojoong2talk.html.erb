@@ -15,7 +15,7 @@
 			<% @temp.each do |t|%>
 				<% left = (i%4)*250 %>
 				<% top = (i/4).to_i*250 %>
-				<div class="sojoong2talk" id="<%= t.id %>" <% if params[:num]==t.id %><%= "target=y" %><% end %> style="top:<%=top%>px; left:<%=left%>px">
+				<div class="sojoong2talk" id="<%= t.id %>" <% if params[:num]==t.id.to_s %><%= "target=y" %><% end %> style="top:<%=top%>px; left:<%=left%>px">
 					<div class="st_thumbnail">
 						<img id="thumbnail" src="<%= t.talk_thumbnail %>">
 						<img id="content" src="<%= t.talk_content %>" style="display: none;">

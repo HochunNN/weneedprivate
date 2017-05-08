@@ -78,10 +78,10 @@
 	</div>
 	<!--제품 몇개 검색 되었는지-->
 	<div>
-		<% if @search_product_name == nil %>
-			0개의 상품이 검색되었어여
+		<% if !(params[:search_product_name].present?) & !(params[:categories].present?) %>
+			상품을 검색해주세요!
 		<% else %>
-			<%= @search_product_name.values.flatten.size %>개의 상품이 검색되었어여
+			<b><%= params[:categories].present? ? params[:categories] : "모든" %></b> 카테고리에서 <%= params[:lowest_price]=="0" ? "" : "<b>"+params[:lowest_price]+"원 이상," %> <%= params[:highest_price]=="9999999" ? "" : "<b>"+params[:highest_price]+"원 이하," %> <b><%= params[:search_product_name]=='' ? '모든' : params[:search_product_name] %></b> 이름으로 <b><%= @search_product_name.values.flatten.size %>개</b>의 제품이 검색되었습니다.
 		<% end %>
 	</div>
 	
@@ -89,7 +89,7 @@
 	  <%= render partial: "layouts/page_price" %>
 	</div>
 	
-	<div id="infinite-scrolling">
+	<div id="infinite-scrolling" style="text-align: center;">
 		<% if @search_product_name_keys_paginate.present? %>
 			<%= will_paginate @search_product_name_keys_paginate %>
 		<% end %>

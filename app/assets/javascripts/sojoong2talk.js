@@ -2,6 +2,26 @@ $(document).ready(function(){
     var min_height = $(".list_container").css("height")
 	var top;
 	var left;
+    $(".sojoong2talk").each(function(i, tag){
+        if($(tag).attr("target")=="y"){
+            var lc_height;
+			top = $(this).css("top"); 
+			left = $(this).css("left");
+			$(".sojoong2talk").css("z-index", "0");	
+			$(this).css("top", "0");
+			$(this).css("left", "50%");
+			$(this).css("margin-left", "-480px");
+			$(this).css("padding", "20px");
+			$(this).css("width", "1000px");
+			$(this).css("height", "auto");
+			$(this).css("z-index", "1");
+			$(this).find("#thumbnail").css("display", "none")
+			$(this).find("#content").css("display", "inline-block")
+			lc_height = $(this).find("#content").height()+40 + "px"
+			$(".list_container").css("height", lc_height);
+			$('html, body').animate({scrollTop: $(this).offset().top-80}, 500);
+        }
+    });
 	$(".sojoong2talk").click(function(){
 		if($(this).find("#content").css("display") == "none"){
 			var lc_height;

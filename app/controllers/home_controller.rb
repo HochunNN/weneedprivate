@@ -5,7 +5,6 @@ class HomeController < ApplicationController
   ######### 소중이톡 적으려면 패스워드 쳐야함 
   http_basic_authenticate_with name: "admin", password: "1234567890", only: [:page_sojoong2talk_write, :page_announce_write]
   
-  
 ##########################################################################################  
 ################################메인화면 관련#############################################
 ##########################################################################################
@@ -15,6 +14,7 @@ class HomeController < ApplicationController
     @sudas = Suda.order("created_at desc").limit(4) #최근 4개
     @reviews = Review.order("created_at desc").limit(4) #최근 4개
     @announces = Announce.order("created_at desc").limit(3)
+    @sojoong2talks = Sojoong2talk.order("created_at desc").limit(4)
   end
   
   def page_main_linetalk_write
@@ -87,8 +87,17 @@ class HomeController < ApplicationController
     
       # 타이틀 정보만 있는 경우
       if (params[:lowest_price].present? == false) && (params[:categories].present? == false) && (params[:search_product_name].present? == true)
-      
-        @search_product_name = Product.where("product_title LIKE '%#{params[:search_product_name]}%'").order("product_price asc").group_by {|t| t.product_title}
+        search_arr = params[:search_product_name].to_s.split(" ")
+        if search_arr.length==1
+          @search_product_name = Product.where("product_title LIKE '%#{params[:search_product_name]}%'")  
+        else
+          i = 0
+          @search_product_name = Product.where("product_title LIKE '%#{search_arr[0]}%'")
+          while i<search_arr.length
+            i = i + 1
+            @search_product_name = @search_product_name.where("product_title LIKE '%#{search_arr[i]}%'")
+          end
+        end
         @search_product_name_keys = @search_product_name.keys
         @search_product_name_keys_paginate = @search_product_name_keys.paginate(:page => params[:page], :per_page => 20)
       
@@ -130,7 +139,17 @@ class HomeController < ApplicationController
       elsif (params[:lowest_price].present? == true) && (params[:categories].present? == false) &&  (params[:search_product_name].present? == true) 
         
         
-        products_title_filter = Product.where("product_title LIKE '%#{params[:search_product_name]}%'")
+        search_arr = params[:search_product_name].to_s.split(" ")
+        if search_arr.length==1
+          products_title_filter = Product.where("product_title LIKE '%#{params[:search_product_name]}%'")  
+        else
+          i = 0
+          products_title_filter = Product.where("product_title LIKE '%#{search_arr[0]}%'")
+          while i<search_arr.length
+            i = i + 1
+            products_title_filter = products_title_filter.where("product_title LIKE '%#{search_arr[i]}%'")
+          end
+        end
         products_price_filter = products_title_filter.where("product_price >= ? AND product_price <= ?", params[:lowest_price].to_i, params[:highest_price].to_i)
         @search_product_name = products_price_filter.order("product_price asc").group_by {|t| t.product_title}
         @search_product_name_keys = @search_product_name.keys
@@ -150,23 +169,36 @@ class HomeController < ApplicationController
         ids = result_a + result_b
         
         # sub카테고리 그냥 카테고리 인것들 고르기.
-        prducts = Product.where(id: ids)
+        products = Product.where(id: ids)
         
         # 타이틀로 거르기
-        products_title_filter = products.where("product_title LIKE '%#{params[:search_product_name]}%'")
+        search_arr = params[:search_product_name].to_s.split(" ")
+        if search_arr.length==1
+          products_title_filter = products.where("product_title LIKE '%#{params[:search_product_name]}%'")  
+        else
+          i = 0
+          products_title_filter = products.where("product_title LIKE '%#{search_arr[0]}%'")
+          while i<search_arr.length
+            i = i + 1
+            products_title_filter = products_title_filter.where("product_title LIKE '%#{search_arr[i]}%'")
+          end
+        end
         
         # 가격정보까지 거르기.
         @search_product_name = products_title_filter.where("product_price >= ? AND product_price <= ?", params[:lowest_price].to_i, params[:highest_price].to_i).order("product_price asc").group_by {|t| t.product_title}
         
         @search_product_name_keys = @search_product_name.keys
         @search_product_name_keys_paginate = @search_product_name_keys.paginate(:page => params[:page], :per_page => 20)
-    
+        
+        else
+          ran = (1..Product.all.size).to_a.sample(20)
+          @search_product_name = Product.find(ran).group_by {|t| t.product_title}
+          @search_product_name_keys = @search_product_name.keys
+          @search_product_name_keys_paginate = @search_product_name_keys.paginate(:page => params[:page], :per_page => 20)
       end
     
   end
     
-    
-
 ##########################################################################################  
 ##############################자유게시판 관련#############################################
 ##########################################################################################
