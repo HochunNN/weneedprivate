@@ -81,25 +81,25 @@
 	</div>
 </div>
 <div class="community">
-	<div class="review_board">
-		<div class="title">
-			<span id="head">리뷰방_</span>
-			<a href="/home/page_board_review" id="link">더보기▶</a>
-		</div>
-		<div class="item_box">
-			<% @reviews.each do |r| %>
-				<a href="/home/page_board_review?num=<%=r.id%>" class="item">
-					<span id="category">카테고리/카테고리</span><br>
-					<span id="product_name"><%= r.review_prod_name %></span><br>
-					<span id="title"><%= r.review_title.truncate(10) %></span><br>
-					<span id="name"><%= r.review_writer %></span><br>
-				</a>
-			<% end %>
-		</div>
-	</div>
+	<!--<div class="review_board">-->
+	<!--	<div class="title">-->
+	<!--		<span id="head">리뷰방_</span>-->
+	<!--		<a href="/home/page_board_review" id="link">더보기▶</a>-->
+	<!--	</div>-->
+	<!--	<div class="item_box">-->
+	<!--		< @reviews.each do |r| %>-->
+	<!--			<a href="/home/page_board_review?num=<=r.id%>" class="item">-->
+	<!--				<span id="category">카테고리/카테고리</span><br>-->
+	<!--				<span id="product_name"><= r.review_prod_name %></span><br>-->
+	<!--				<span id="title"><= r.review_title.truncate(10) %></span><br>-->
+	<!--				<span id="name"><= r.review_writer %></span><br>-->
+	<!--			</a>-->
+	<!--		< end %>-->
+	<!--	</div>-->
+	<!--</div>-->
 	<div class="free_board">
 		<div class="title">
-			<span id="head">자유방_</span>
+			<span id="head">자유게시판_</span>
 			<a href="/home/page_board_free" id="link">더보기▶</a>
 		</div>
 		<div class="item_box">
