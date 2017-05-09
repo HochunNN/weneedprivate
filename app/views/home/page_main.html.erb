@@ -16,7 +16,7 @@
 		<% @announces.each do |a| %>
 			<a href="/home/page_announce?num=<%= a.id %>" id="item" style="background-image: url(<%= image_path("announce1.png") %>);">
 				<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%;"><%= a.announce_title %></span><br>
-				<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%; color: #a1f3da; font-size: 25px;"><%= a.announce_content %></span>
+				<span style="display: inline-block; white-space:nowrap; overflow:hidden; text-overflow: ellipsis; width: 100%; color: #a1f3da; font-size: 25px;"><%= raw a.announce_content %></span>
 			</a>
 		<% end %>
 	</div>
