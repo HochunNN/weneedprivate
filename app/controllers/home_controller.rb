@@ -191,7 +191,7 @@ class HomeController < ApplicationController
         @search_product_name_keys_paginate = @search_product_name_keys.paginate(:page => params[:page], :per_page => 20)
         
         else
-          ran = (1..Product.all.size).to_a.sample(20)
+          ran = Product.pluck(:id).sample(20)
           @search_product_name = Product.find(ran).group_by {|t| t.product_title}
           @search_product_name_keys = @search_product_name.keys
           @search_product_name_keys_paginate = @search_product_name_keys.paginate(:page => params[:page], :per_page => 20)
