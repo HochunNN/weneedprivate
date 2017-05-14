@@ -131,6 +131,24 @@
 	            
 	        })
 	    });
+	    
+	    $(".open").click(function(){
+	    	// var tag = $(this).parents(".info2")[0]
+	        post_id = $(this).parents(".free").children(".num").text();
+	        // alert(post_id);
+	         $.ajax({
+	             method: "POST",
+	             url: "/home/page_board_free_viewcount",
+	             data: {post_id: post_id},
+	             //success: function(){
+	        //         $(tag).append("<span id='s_name'>" + reply_name + "</span>" +
+									// "<span id='s_content'>" + reply_content + "</span><br>");
+	        //         $(".reply_name").val('');
+	        //         $(".reply_content").val('');
+	            // }
+	            
+	        });
+	    });
 		
 	});
 	
