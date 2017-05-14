@@ -38,7 +38,7 @@
 				<% end %>>
 					<div class="num"><%= s.id %></div>
 					<div class="info1">
-						<span id="date"><%= s.created_at.strftime("%Y-%d-%m %H:%M") %></span>
+						<span id="date"><%= s.created_at.strftime("%Y-%m-%d %H:%M") %></span>
 					</div>
 					<div class="info2">
 						<span class="open" style="display: inline-block; width: 100%; cursor: pointer;">
@@ -70,7 +70,7 @@
 						<span class="f_close" style="display: inline-block; margin-top: 10px; padding: 5px 0px 5px 0px; width: 100%; color: white; font-weight: bold; background-color: #cccccc; cursor: pointer; text-align: center;">접기</span>
 					</div>
 					<div class="info3">
-						<span id="view" style="background-image: url(<%= image_path("like_ico.png") %>);"><%= s.suda_viewcount %></span>
+						<span id="view" style="background-image: url(<%= image_path("view_ico.png") %>);"><%= s.suda_viewcount %></span>
 						<span id="comment" style="background-image: url(<%= image_path("comment_ico.png") %>);"><%= s.sudareplies.count %></span>
 						<span id="like" style="background-image: url(<%= image_path("like_ico.png") %>);">21</span>
 					</div>
