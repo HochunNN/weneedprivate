@@ -81,7 +81,7 @@
 		<% if !(params[:search_product_name].present?) & !(params[:categories].present?) %>
 			상품을 검색해주세요!
 		<% else %>
-			<b><%= params[:categories].present? ? params[:categories] : "모든" %></b> 카테고리에서 <%= params[:lowest_price]=="0" ? "" : "<b>"+params[:lowest_price]+"원 이상," %> <%= params[:highest_price]=="9999999" ? "" : "<b>"+params[:highest_price]+"원 이하," %> <b><%= params[:search_product_name]=='' ? '모든' : params[:search_product_name] %></b> 이름으로 <b><%= @search_product_name.values.flatten.size %>개</b>의 제품이 검색되었습니다.
+			<b><%= params[:categories].present? ? params[:categories] : "모든" %></b> 카테고리에서 <%= params[:lowest_price].present? ?  (params[:lowest_price] == "0" ? "" : "<b>"+params[:lowest_price]+"원 이상,") : "" %> <%= params[:highest_price].present? ? (params[:highest_price]=="9999999" ? "" : "<b>"+params[:highest_price]+"원 이하,") : "" %> <b><%= params[:search_product_name]=='' ? '모든' : params[:search_product_name] %></b> 이름으로 <b><%= @search_product_name.values.flatten.size %>개</b>의 제품이 검색되었습니다.
 		<% end %>
 	</div>
 	

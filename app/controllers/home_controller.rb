@@ -89,13 +89,13 @@ class HomeController < ApplicationController
       if (params[:lowest_price].present? == false) && (params[:categories].present? == false) && (params[:search_product_name].present? == true)
         search_arr = params[:search_product_name].to_s.split(" ")
         if search_arr.length==1
-          @search_product_name = Product.where("product_title LIKE '%#{params[:search_product_name]}%'")  
+          @search_product_name = Product.where("product_title LIKE '%#{params[:search_product_name]}%'").order("product_price asc").group_by {|t| t.product_title}  
         else
           i = 0
           @search_product_name = Product.where("product_title LIKE '%#{search_arr[0]}%'")
           while i<search_arr.length
             i = i + 1
-            @search_product_name = @search_product_name.where("product_title LIKE '%#{search_arr[i]}%'")
+            @search_product_name = @search_product_name.where("product_title LIKE '%#{search_arr[i]}%'").order("product_price asc").group_by {|t| t.product_title}
           end
         end
         @search_product_name_keys = @search_product_name.keys
